@@ -6,4 +6,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MgSoftDev.Controls.WPF\MgSoftDev.Controls.WPF.csproj" />
+  </ItemGroup>
+
 </Project>

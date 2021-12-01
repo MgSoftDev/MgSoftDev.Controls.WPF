@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MgSoftDev.Controls.WPF.Notification;
 
 namespace MgSoftDev.Controls.Wpf.Example
 {
@@ -23,6 +24,11 @@ namespace MgSoftDev.Controls.Wpf.Example
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            NotifyService.Show(_=>_);
         }
     }
 }
