@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFrameworks>net5.0-windows;net48</TargetFrameworks>
+    <UseWPF>true</UseWPF>
+    <LangVersion>9.0</LangVersion>
+  </PropertyGroup>
+
+</Project>
