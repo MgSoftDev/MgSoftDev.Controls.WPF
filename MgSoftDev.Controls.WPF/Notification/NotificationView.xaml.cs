@@ -10,25 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MgSoftDev.Controls.WPF.Notification;
 
-namespace MgSoftDev.Controls.Wpf.Example
+namespace MgSoftDev.Controls.WPF.Notification
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Lógica de interacción para NotificationView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class NotificationView : Window
     {
-        public MainWindow()
+        public NotificationView()
         {
             InitializeComponent();
-        }
-
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            NotifyService.Show(_=>_.Title("asas"));
         }
     }
 }

@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
 <WrapPanel>
-    <Button Click="ButtonBase_OnClick"></Button>
+    <Button Content="Notify" Click="ButtonBase_OnClick"></Button>
 </WrapPanel>
     </Grid>
 </Window>

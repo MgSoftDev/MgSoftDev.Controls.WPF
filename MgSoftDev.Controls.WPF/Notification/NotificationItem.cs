@@ -6,6 +6,22 @@ namespace MgSoftDev.Controls.WPF.Notification
 {
     public class NotificationItem
     {
+        public enum NotifyPosition
+        {
+            TopLeft,
+            TopRight,
+            BottomLeft,
+            BottomRight
+        }
+
+        public enum NotifyType
+        {
+            Information,
+            Success,
+            Warning,
+            Error,
+            Custom
+        }
         public Action   ActionEndLife     { get; set; }
         public string   Title             { get; set; } = null;
         public string   Message           { get; set; } = null;
@@ -21,8 +37,8 @@ namespace MgSoftDev.Controls.WPF.Notification
         public string   FontFamilyMessage { get; set; }
 
 
-        public NotificationSettings.NotifyType Type { get; set; } = NotificationSettings.NotifyType.Success;
+        public NotifyType Type { get; set; } = NotifyType.Success;
 
-        public NotificationSettings.NotifyPosition Position { get; set; } = NotificationSettings.NotifyPosition.BottomRight;
+        public NotifyPosition Position { get; set; } = NotifyPosition.BottomRight;
     }
 }
