@@ -5,6 +5,10 @@
     <TargetFrameworks>net5.0-windows;net48</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <LangVersion>9.0</LangVersion>
+    <Authors>Miguel Fernando Garcias Salazar</Authors>
+    <Company>MgSoftDev</Company>
+    <Copyright>MgSoftDev</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>

@@ -9,7 +9,6 @@ using System.Xml;
 
 namespace MgSoftDev.Controls.WPF.Notification
 {
-    [Export( "Default", typeof( INotify ) )]
     internal class NotifyProvider : INotify
     {
         #region Field
