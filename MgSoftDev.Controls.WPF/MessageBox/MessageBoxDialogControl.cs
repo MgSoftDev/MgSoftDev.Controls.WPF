@@ -41,7 +41,7 @@ namespace MgSoftDev.Controls.WPF.MessageBox
         }
 
 
-        public static readonly DependencyProperty IconProperty = DependencyProperty.Register("Icon", typeof( MessageBoxDialog.MessageBoxIcon ), typeof( MessageBoxDialogControl ), new PropertyMetadata(default( MessageBoxDialog.MessageBoxIcon )));
+        public static readonly DependencyProperty IconProperty = DependencyProperty.Register("IconPath", typeof( MessageBoxDialog.MessageBoxIcon ), typeof( MessageBoxDialogControl ), new PropertyMetadata(default( MessageBoxDialog.MessageBoxIcon )));
 
         public MessageBoxDialog.MessageBoxIcon Icon
         {

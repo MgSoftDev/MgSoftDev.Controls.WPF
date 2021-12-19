@@ -13,17 +13,20 @@
     </Window.Resources>
     <Grid>
 <WrapPanel>
-    <Button Content="Notify" Click="ButtonBase_OnClick"></Button>
-            <Button Content="Message Box 1" Click="ButtonBase_OnClick1"></Button>
-            <Button Content="Message Box 2" Click="ButtonBase_OnClick2"></Button>
-            <Button Content="Message Box 3" Click="ButtonBase_OnClick3"></Button>
-            <Button Content="Message Box 4" Click="ButtonBase_OnClick4"></Button>
-            <Button Content="Message Box Custom 5" Click="ButtonBase_OnClick5"></Button>
-            <Button Content="Message Box Custom 6" Click="ButtonBase_OnClick6"></Button>
-            <Button Content="Message Box Custom 7" Click="ButtonBase_OnClick7"></Button>
-            <Button Content="Message Box Custom 8" Click="ButtonBase_OnClick8"></Button>
-            <Button Content="Message Box Custom 9" Click="ButtonBase_OnClick9"></Button>
-            <Button Content="Message Box Custom 10" Click="ButtonBase_OnClick10"></Button>
+    <Button Content="Notify Info" Click="ButtonBase_OnClick"></Button>
+    <Button Content="Notify Susses" Click="ButtonBase1_OnClick"></Button>
+    <Button Content="Notify Warn" Click="ButtonBase2_OnClick"></Button>
+    <Button Content="Notify error" Click="ButtonBase3_OnClick"></Button>
+            <Button Content="ShowAsterisk" Click="ButtonBase_OnClick1"></Button>
+            <Button Content="ShowError" Click="ButtonBase_OnClick2"></Button>
+            <Button Content="ShowExclamation" Click="ButtonBase_OnClick3"></Button>
+            <Button Content="ShowHand" Click="ButtonBase_OnClick4"></Button>
+            <Button Content="ShowInformation" Click="ButtonBase_OnClick5"></Button>
+            <Button Content="ShowNone" Click="ButtonBase_OnClick6"></Button>
+            <Button Content="ShowQuestion" Click="ButtonBase_OnClick7"></Button>
+            <Button Content="ShowStop" Click="ButtonBase_OnClick8"></Button>
+            <Button Content="ShowSuccessful" Click="ButtonBase_OnClick9"></Button>
+            <Button Content="ShowWarning" Click="ButtonBase_OnClick10"></Button>
         </WrapPanel>
     </Grid>
 </Window>

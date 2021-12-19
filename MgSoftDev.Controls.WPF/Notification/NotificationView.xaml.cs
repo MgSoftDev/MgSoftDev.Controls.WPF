@@ -17,9 +17,9 @@ namespace MgSoftDev.Controls.WPF.Notification
     /// <summary>
     /// Lógica de interacción para NotificationView.xaml
     /// </summary>
-    public partial class NotificationView : Window
+    internal partial class NotificationView : Window
     {
-        public NotificationView()
+        internal NotificationView()
         {
             InitializeComponent();
         }

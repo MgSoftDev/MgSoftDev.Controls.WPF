@@ -3,19 +3,24 @@
                     xmlns:controls="clr-namespace:MgSoftDev.Controls.WPF.MessageBox"
                     xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
                     xmlns:converters="clr-namespace:MgSoftDev.Controls.WPF.Helpers.Converters"
-                    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
-    <converters:ToTypeConverter x:Key="ToTypeConverter"></converters:ToTypeConverter>
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+                    xmlns:notification="clr-namespace:MgSoftDev.Controls.WPF.Notification">
+    <converters:ToTypeConverter x:Key="ToTypeConverter" />
 
     <Style TargetType="{x:Type controls:MessageBoxDialogControl}">
 
-        <Setter Property="Background" Value="#9B000000" />
+        <Setter Property="Background" Value="DarkBlue" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="BorderBrush" Value="GreenYellow" />
+        <Setter Property="BorderThickness" Value="2" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type controls:MessageBoxDialogControl}">
                     <Grid VerticalAlignment="Top" x:Name="Root">
                         <Border x:Name="MainBorder" RenderTransformOrigin="0.5,0" CornerRadius="15"
-                                Margin="20,50,20,20" Background="Blue"
-                                BorderBrush="Green" BorderThickness="2">
+                                Margin="20,50,20,20" Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
                             <b:Interaction.Triggers>
                                 <b:EventTrigger EventName="Loaded">
                                     <b:ControlStoryboardAction>
@@ -24,9 +29,10 @@
                                                 <DoubleAnimationUsingKeyFrames
                                                     Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)"
                                                     Storyboard.TargetName="MainBorder">
-                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-1" />
-                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1" />
-                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.00" />
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.900" Value="0" />
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:1.000" Value="2" />
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:1.100" Value="-2" />
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:1.200" Value="0" />
                                                 </DoubleAnimationUsingKeyFrames>
                                             </Storyboard>
                                         </b:ControlStoryboardAction.Storyboard>
@@ -55,40 +61,50 @@
 
 
                                 <Border Grid.Row="1" Margin="10,0,10,0">
-                                    <ContentControl x:Name="Header"  Focusable="False" Content="{TemplateBinding Header}" >
+                                    <ContentControl x:Name="Header" Focusable="False"
+                                                    Content="{TemplateBinding Header}">
                                         <b:Interaction.Triggers>
-                                            <b:DataTrigger  Binding="{Binding Header, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ToTypeConverter}}" Value="{x:Type sys:String}">
+                                            <b:DataTrigger
+                                                Binding="{Binding Header, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ToTypeConverter}}"
+                                                Value="{x:Type sys:String}">
                                                 <b:ChangePropertyAction TargetName="Header" PropertyName="Content">
                                                     <b:ChangePropertyAction.Value>
-                                                        <TextBlock Text="{TemplateBinding Header}" Foreground="Yellow" Margin="3" HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="25"></TextBlock>
+                                                        <TextBlock Text="{TemplateBinding Header}" Foreground="Yellow"
+                                                                   Margin="3" HorizontalAlignment="Center"
+                                                                   TextWrapping="Wrap" FontSize="25" />
                                                     </b:ChangePropertyAction.Value>
                                                 </b:ChangePropertyAction>
                                             </b:DataTrigger>
-                                            </b:Interaction.Triggers>
+                                        </b:Interaction.Triggers>
                                     </ContentControl>
 
                                 </Border>
                                 <Grid Grid.Row="2">
-                                    <ContentControl x:Name="Content" FontSize="16" Content="{TemplateBinding Content}" Focusable="False"
-                                                    Margin="15" >
+                                    <ContentControl x:Name="Content" FontSize="16" Content="{TemplateBinding Content}"
+                                                    Focusable="False"
+                                                    Margin="15">
                                         <b:Interaction.Triggers>
-                                            <b:DataTrigger  Binding="{Binding Content, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ToTypeConverter}}" Value="{x:Type sys:String}">
+                                            <b:DataTrigger
+                                                Binding="{Binding Content, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ToTypeConverter}}"
+                                                Value="{x:Type sys:String}">
                                                 <b:ChangePropertyAction TargetName="Content" PropertyName="Content">
                                                     <b:ChangePropertyAction.Value>
-                                                        <TextBlock Text="{TemplateBinding Content}" Foreground="White"  TextWrapping="Wrap" FontSize="18"></TextBlock>
+                                                        <TextBlock Text="{TemplateBinding Content}"
+                                                                   Foreground="{TemplateBinding Foreground}"
+                                                                   TextWrapping="Wrap" FontSize="18" />
                                                     </b:ChangePropertyAction.Value>
                                                 </b:ChangePropertyAction>
                                             </b:DataTrigger>
                                         </b:Interaction.Triggers>
                                     </ContentControl>
                                 </Grid>
-                                <Border Grid.Row="3" BorderBrush="Gray"
+                                <Border Grid.Row="3" BorderBrush="{TemplateBinding BorderBrush}"
                                         BorderThickness="0,2,0,0">
-                                    <StackPanel Margin="0,5,10,5" Orientation="Horizontal" HorizontalAlignment="Right">
-                                        <Button x:Name="CancelBtn"
+                                    <StackPanel Margin="0,5,15,5" Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <Button x:Name="CancelBtn" Background="DeepSkyBlue"
                                                 Margin="20,0,0,0"
                                                 MinWidth="100" HorizontalAlignment="Left" Visibility="Collapsed"
-                                                IsCancel="False"
+                                                IsCancel="False" Foreground="White"
                                                 Height="Auto">
                                             <TextBlock x:Name="CancelText" Text="{TemplateBinding CancelLabel}" />
                                             <b:Interaction.Triggers>
@@ -96,19 +112,23 @@
                                                     <b:CallMethodAction MethodName="Cancel"
                                                                         TargetObject="{Binding RelativeSource={RelativeSource TemplatedParent}}" />
                                                 </b:EventTrigger>
-                                                <b:DataTrigger Binding="{Binding Buttons, RelativeSource={RelativeSource  TemplatedParent}}" Value="OKCancel">
+                                                <b:DataTrigger
+                                                    Binding="{Binding Buttons, RelativeSource={RelativeSource  TemplatedParent}}"
+                                                    Value="OKCancel">
                                                     <b:ChangePropertyAction PropertyName="IsCancel" Value="True" />
                                                     <b:ChangePropertyAction PropertyName="Visibility" Value="Visible" />
                                                 </b:DataTrigger>
-                                                <b:DataTrigger Binding="{Binding Buttons, RelativeSource={RelativeSource  TemplatedParent}}" Value="YesNoCancel">
+                                                <b:DataTrigger
+                                                    Binding="{Binding Buttons, RelativeSource={RelativeSource  TemplatedParent}}"
+                                                    Value="YesNoCancel">
                                                     <b:ChangePropertyAction PropertyName="IsCancel" Value="True" />
                                                     <b:ChangePropertyAction PropertyName="Visibility" Value="Visible" />
                                                 </b:DataTrigger>
                                             </b:Interaction.Triggers>
                                         </Button>
 
-                                        <Button x:Name="NotBtn"
-                                                Margin="20,0,0,0" MinWidth="100"
+                                        <Button x:Name="NotBtn" Background="DeepSkyBlue"
+                                                Margin="20,0,0,0" MinWidth="100" Foreground="White"
                                                 HorizontalAlignment="Left" Visibility="Collapsed" Height="Auto">
                                             <TextBlock x:Name="NotText" Text="{TemplateBinding NotLabel}" />
                                             <b:Interaction.Triggers>
@@ -116,30 +136,40 @@
                                                     <b:CallMethodAction MethodName="Not"
                                                                         TargetObject="{Binding RelativeSource={RelativeSource TemplatedParent}}" />
                                                 </b:EventTrigger>
-                                                <b:DataTrigger Binding="{Binding Buttons, RelativeSource={RelativeSource  TemplatedParent}}" Value="YesNo">
+                                                <b:DataTrigger
+                                                    Binding="{Binding Buttons, RelativeSource={RelativeSource  TemplatedParent}}"
+                                                    Value="YesNo">
                                                     <b:ChangePropertyAction PropertyName="IsCancel" Value="True" />
                                                     <b:ChangePropertyAction PropertyName="Visibility" Value="Visible" />
                                                 </b:DataTrigger>
-                                                <b:DataTrigger Binding="{Binding Buttons, RelativeSource={RelativeSource  TemplatedParent}}" Value="YesNoCancel">
+                                                <b:DataTrigger
+                                                    Binding="{Binding Buttons, RelativeSource={RelativeSource  TemplatedParent}}"
+                                                    Value="YesNoCancel">
                                                     <b:ChangePropertyAction PropertyName="IsCancel" Value="True" />
                                                     <b:ChangePropertyAction PropertyName="Visibility" Value="Visible" />
                                                 </b:DataTrigger>
                                             </b:Interaction.Triggers>
                                         </Button>
 
-                                        <Button x:Name="YesBtn"
-                                                Margin="20,0,0,0" MinWidth="100"
+                                        <Button x:Name="YesBtn" Background="DeepSkyBlue"
+                                                Margin="20,0,0,0" MinWidth="100" Foreground="White"
                                                 HorizontalAlignment="Right" Visibility="Visible" Height="Auto"
 
                                                 IsDefault="True">
-                                            <TextBlock x:Name="YesText" Text="{TemplateBinding OkLabel}">
+                                            <TextBlock x:Name="YesText" FontWeight="Bold"
+                                                       Text="{TemplateBinding OkLabel}">
                                                 <b:Interaction.Triggers>
-                                                    <b:DataTrigger Binding="{Binding Buttons, RelativeSource={RelativeSource  TemplatedParent}}" Value="YesNo">
-                                                        <b:ChangePropertyAction PropertyName="Text" Value="{Binding YesLabel, RelativeSource={RelativeSource TemplatedParent}}" />
+                                                    <b:DataTrigger
+                                                        Binding="{Binding Buttons, RelativeSource={RelativeSource  TemplatedParent}}"
+                                                        Value="YesNo">
+                                                        <b:ChangePropertyAction PropertyName="Text"
+                                                            Value="{Binding YesLabel, RelativeSource={RelativeSource TemplatedParent}}" />
                                                     </b:DataTrigger>
-                                                    <b:DataTrigger Binding="{Binding Buttons, RelativeSource={RelativeSource  TemplatedParent}}"
-                                                                   Value="YesNoCancel">
-                                                        <b:ChangePropertyAction PropertyName="Text" Value="{Binding YesLabel, RelativeSource={RelativeSource TemplatedParent}}" />
+                                                    <b:DataTrigger
+                                                        Binding="{Binding Buttons, RelativeSource={RelativeSource  TemplatedParent}}"
+                                                        Value="YesNoCancel">
+                                                        <b:ChangePropertyAction PropertyName="Text"
+                                                            Value="{Binding YesLabel, RelativeSource={RelativeSource TemplatedParent}}" />
                                                     </b:DataTrigger>
                                                 </b:Interaction.Triggers>
                                             </TextBlock>
@@ -161,104 +191,140 @@
                         <Border Grid.Row="0" Width="100" Height="100" Background="{TemplateBinding Background}"
                                 Margin="0,0,0,0" CornerRadius="100" VerticalAlignment="Top"
                                 HorizontalAlignment="Center">
-                            <Border Margin="5" CornerRadius="100">
-                                <ContentControl Focusable="False" x:Name="Icon" Margin="2.5">
+                            <Border Margin="5" BorderThickness="2" CornerRadius="100"
+                                    BorderBrush="{TemplateBinding Foreground}">
+                                <ContentControl Focusable="False" x:Name="Icon" Margin="15" VerticalAlignment="Center"
+                                                HorizontalAlignment="Center">
                                     <b:Interaction.Triggers>
-                                        <b:DataTrigger Binding="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}" Value="Warning">
+                                        <b:DataTrigger
+                                            Binding="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}"
+                                            Value="Warning">
                                             <b:ChangePropertyAction TargetName="Icon" PropertyName="Content">
                                                 <b:ChangePropertyAction.Value>
                                                     <Path
-                                                        Data="M13.950004,24.5L13.950004,28.299988 17.950004,28.299988 17.950004,24.5z M13.950004,10.399963L13.950004,21.699951 17.950004,21.699951 17.950004,10.399963z M15.950004,0C16.349998,0,16.750007,0.19995117,16.950004,0.69995117L31.750011,30.099976C31.949993,30.5 31.949993,31 31.750011,31.399963 31.549999,31.799988 31.150005,32 30.750011,32L1.1499981,32C0.75000406,32 0.34999478,31.799988 0.14999761,31.399963 -0.049999204,31 -0.049999204,30.5 0.14999761,30.099976L14.950004,0.69995117C15.150001,0.19995117,15.549995,0,15.950004,0z"
-                                                        Stretch="Uniform" Fill="#FFFFFFFF" Margin="0,0,0,0" />
+                                                        Data="M14.551891,20.867005L17.546864,20.867005 17.546864,23.562989 14.551891,23.562989z M15.051887,8.4869997L17.047905,8.4869997 17.547902,18.970001 14.551891,18.970001z M16.049927,2.5960085L2.6710004,25.459992 29.428791,25.459992z M16.049927,0C16.948906,2.2238159E-07,17.846909,0.49899314,18.24687,1.2980043L31.625796,24.161988C32.124756,24.960999 32.124756,25.959015 31.625796,26.757996 31.1258,27.557007 30.327771,28.056 29.328816,28.056L2.6710004,28.056C1.7720202,28.056 0.87401672,27.557007 0.37499727,26.757996 -0.12499909,25.959015 -0.12499909,24.960999 0.37499727,24.161988L13.852922,1.2980043C14.252943,0.49899314,15.150885,2.2238159E-07,16.049927,0z"
+                                                        Stretch="Uniform"
+                                                        Fill="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}"
+                                                        Margin="0" />
                                                 </b:ChangePropertyAction.Value>
                                             </b:ChangePropertyAction>
                                         </b:DataTrigger>
 
-                                        <b:DataTrigger Binding="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}" Value="Asterisk">
+                                        <b:DataTrigger
+                                            Binding="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}"
+                                            Value="Asterisk">
                                             <b:ChangePropertyAction TargetName="Icon" PropertyName="Content">
                                                 <b:ChangePropertyAction.Value>
                                                     <Path
-                                                        Data="M11.331985,10.669C11.137986,10.669 10.976986,10.731 10.852986,10.855999 10.728987,10.981 10.665987,11.141 10.665987,11.335L10.665987,14.668C10.665987,14.862 10.727986,15.021999 10.852986,15.146999 10.977986,15.271999 11.136986,15.334 11.331985,15.334L13.331984,15.334 13.331984,22 11.331985,22C11.137986,22 10.976986,22.063 10.852986,22.188 10.728987,22.313 10.665987,22.471999 10.665987,22.667L10.665987,26C10.665987,26.195 10.727986,26.354 10.852986,26.479 10.977986,26.604 11.136986,26.667 11.331985,26.667L20.665975,26.667C20.860975,26.667 21.019974,26.604 21.144974,26.479 21.269974,26.354 21.332974,26.193999 21.332974,26L21.330974,26.002 21.330974,22.667999C21.330974,22.474 21.267974,22.313999 21.143974,22.188999 21.019974,22.063999 20.859975,22.002 20.664975,22.002L18.665977,22.002 18.665977,11.335C18.665977,11.141 18.602977,10.981 18.477977,10.855999 18.352978,10.731 18.192978,10.669 17.998978,10.669z M13.999983,3.3329997C13.805983,3.3329997 13.646983,3.3959994 13.520984,3.5209994 13.394983,3.6459994 13.332984,3.8049994 13.332984,3.9999995L13.332984,7.3329997C13.332984,7.5269995 13.395984,7.6879995 13.520984,7.8119993 13.645983,7.9359996 13.805983,7.9989996 13.999983,7.9989996L17.999978,7.9989996C18.194978,7.9989996 18.353978,7.9369996 18.478977,7.8119993 18.603977,7.6869996 18.666977,7.5269995 18.666977,7.3329997L18.666977,3.9999995C18.666977,3.8049994 18.603977,3.6459994 18.478977,3.5209994 18.353978,3.3959994 18.193978,3.3329997 17.999978,3.3329997z M15.99998,0C18.902977,0 21.579974,0.7149992 24.030971,2.1459999 26.481968,3.5769997 28.422966,5.5179996 29.853964,7.9689994L29.855964,7.9689994C31.285962,10.42 32.000961,13.097 32.000961,16 32.000961,18.901999 31.285962,21.58 29.854964,24.030999 28.423966,26.482 26.482968,28.424 24.031971,29.854 21.579974,31.285 18.901977,32 15.99998,32 13.097983,32 10.419987,31.285 7.9689894,29.854 5.517992,28.423 3.5769958,26.482 2.1459961,24.030999 0.71499825,21.58 0,18.901999 0,16 0,13.098 0.71499825,10.421 2.1459961,7.9689994 3.5769958,5.5169997 5.517992,3.5769997 7.9689894,2.1459999 10.419987,0.7149992 13.096984,0 15.99998,0z"
-                                                        Stretch="Uniform" Fill="#FFFFFFFF" Margin="0,0,0,0" />
+                                                        Data="M13.5,4A1.5,1.5 0 0,0 12,5.5A1.5,1.5 0 0,0 13.5,7A1.5,1.5 0 0,0 15,5.5A1.5,1.5 0 0,0 13.5,4M13.14,8.77C11.95,8.87 8.7,11.46 8.7,11.46C8.5,11.61 8.56,11.6 8.72,11.88C8.88,12.15 8.86,12.17 9.05,12.04C9.25,11.91 9.58,11.7 10.13,11.36C12.25,10 10.47,13.14 9.56,18.43C9.2,21.05 11.56,19.7 12.17,19.3C12.77,18.91 14.38,17.8 14.54,17.69C14.76,17.54 14.6,17.42 14.43,17.17C14.31,17 14.19,17.12 14.19,17.12C13.54,17.55 12.35,18.45 12.19,17.88C12,17.31 13.22,13.4 13.89,10.71C14,10.07 14.3,8.67 13.14,8.77Z"
+                                                        Stretch="Uniform"
+                                                        Fill="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}"
+                                                        Margin="0,0,0,0" />
                                                 </b:ChangePropertyAction.Value>
                                             </b:ChangePropertyAction>
                                         </b:DataTrigger>
 
-                                        <b:DataTrigger Binding="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}" Value="Error">
+                                        <b:DataTrigger
+                                            Binding="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}"
+                                            Value="Error">
                                             <b:ChangePropertyAction TargetName="Icon" PropertyName="Content">
                                                 <b:ChangePropertyAction.Value>
                                                     <Path
-                                                        Data="M9.9000245,6.000003L6.0000001,9.8999988 12.100037,16.000007 6.0000001,22.100002 9.9000245,25.999997 16,19.900018 22.100037,25.999997 26,22.100002 19.900024,16.000007 26,9.8999988 22.100037,6.000003 16,12.099997z M16,0C24.799988,0 32,7.2000005 32,16.000007 32,24.800016 24.799988,32.000001 16,32.000001 7.2000123,32.000001 8.3946347E-08,24.800016 0,16.000007 8.3946347E-08,7.2000005 7.2000123,0 16,0z"
-                                                        Stretch="Uniform" Fill="#FFFFFFFF" Margin="0,0,0,0"
+                                                        Data="M5.1163335,0C6.4203386,-9.1704351E-08,7.7243743,0.4009941,8.7273803,1.4039678L16.150495,8.1248624 23.27359,1.704927C25.27963,-0.10003502 28.489671,-0.10003502 30.495712,1.704927 32.502731,3.5109269 32.502731,6.4198744 30.495712,8.2258736L23.373596,14.745721 30.094705,20.864637C32.100749,22.670576 32.100749,25.579523 30.094705,27.385523 28.088663,29.190485 24.878623,29.190485 22.871604,27.385523L16.150495,21.26563 9.1293941,27.585531C7.122345,29.39147 3.9123056,29.39147 1.9062939,27.585531 -0.099748187,25.780569 -0.099748187,22.870584 1.9062939,21.065622L8.9283719,14.745721 1.5052868,7.9248535C-0.50176227,6.1188537 -0.50176227,3.2099065 1.5052868,1.4039678 2.5082927,0.50200556 3.8122978,-9.1704351E-08 5.1163335,0z"
+                                                        Stretch="Uniform"
+                                                        Fill="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}"
+                                                        Margin="0,0,0,0"
                                                         RenderTransformOrigin="0.5,0.5" />
                                                 </b:ChangePropertyAction.Value>
                                             </b:ChangePropertyAction>
                                         </b:DataTrigger>
 
-                                        <b:DataTrigger Binding="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}" Value="Exclamation">
+                                        <b:DataTrigger
+                                            Binding="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}"
+                                            Value="Exclamation">
                                             <b:ChangePropertyAction TargetName="Icon" PropertyName="Content">
                                                 <b:ChangePropertyAction.Value>
                                                     <Path
-                                                        Data="M14.299995,21.399963L14.299995,24.399963 17.699997,24.399963 17.699997,21.399963z M14.799995,6.6000061L14.299995,17.5 17.699997,17.5 17.199997,6.6000061z M16,0C24.799995,0 32,7.1999817 32,16 32,24.799988 24.799995,32 16,32 7.1999969,32 0,24.799988 0,16 0,7.1999817 7.1999969,0 16,0z"
-                                                        Stretch="Uniform" Fill="#FFFFFFFF" Margin="0,0,0,0"
+                                                        Data="M10 3H14V14H10V3M10 21V17H14V21H10Z"
+                                                        Stretch="Uniform"
+                                                        Fill="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}"
+                                                        Margin="0,0,0,0"
                                                         RenderTransformOrigin="0.5,0.5" />
                                                 </b:ChangePropertyAction.Value>
                                             </b:ChangePropertyAction>
                                         </b:DataTrigger>
 
-                                        <b:DataTrigger Binding="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}" Value="Hand">
+                                        <b:DataTrigger
+                                            Binding="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}"
+                                            Value="Hand">
                                             <b:ChangePropertyAction TargetName="Icon" PropertyName="Content">
                                                 <b:ChangePropertyAction.Value>
                                                     <Path
                                                         Data="M13.487319,0L13.587326,0C14.68731,0,15.687317,1.0999908,15.687317,2.5L15.687317,13.899994 16.787332,13.899994 17.687332,4.3999939C17.78734,3,18.787345,2,19.787353,2.0999908L19.887361,2.0999908C20.887369,2.1999969,21.687362,3.3999939,21.587385,4.6999969L20.587377,15.899994 20.487371,17.199997 20.487371,17.399994C20.487371,18.199997,20.587377,19.199997,20.787361,20L20.787361,20.099991 21.087381,19.899994C21.687362,19.399994 22.287372,18.799988 22.887382,18.299988 24.187379,17.299988 25.587415,16.799988 27.287408,17.199997 28.087432,17.399994 28.987434,17.899994 28.287416,18.799988 27.687406,19.399994 27.087427,20 26.487415,20.599991 25.187387,22.099991 23.787383,23.599991 22.787376,25.399994 22.68737,25.699997 22.487386,25.899994 22.387378,26.199997L22.287372,26.299988 22.287372,26.399994C22.087388,27.299988 21.687362,28.5 21.087381,29.699997 20.687354,30.599991 20.087373,31.299988 19.487363,31.299988L16.18732,31.299988 7.6872581,32C5.4872602,32,3.6872283,30.199997,3.6872283,28L2.0872408,18.299988 0.087226136,10C-0.21279428,8.6999969,0.28720941,7.3999939,1.1872099,7.1999969L1.2872169,7.1999969 1.5872376,7.1999969C2.4872378,7.1999969,3.2872316,8,3.5872518,9.1999969L5.1872395,15.799988 5.3872532,15.699997C5.4872602,15.699997 5.5872668,15.599991 5.7872499,15.599991 5.9872636,15.5 6.0872706,15.5 6.2872538,15.399994L6.3872608,15.399994 5.3872532,5.1999969C5.1872395,3.8999939,5.9872636,2.6999969,7.0872778,2.5999908L7.1872543,2.5999908 7.387268,2.5999908C8.3872751,2.5999908,9.2872757,3.5999908,9.4872898,4.8999939L10.487297,14.5 10.587304,14.5C10.787287,14.5,10.887294,14.399994,11.087307,14.399994L11.287291,14.399994 11.387298,14.399994 11.387298,2.5C11.387298,1.0999908,12.287298,0,13.487319,0z"
-                                                        Stretch="Uniform" Fill="#FFFFFFFF" Margin="5"
-                                                        RenderTransformOrigin="0.5,0.5" />
+                                                        Stretch="Uniform"
+                                                        Fill="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}"
+                                                        Margin="5" />
                                                 </b:ChangePropertyAction.Value>
                                             </b:ChangePropertyAction>
                                         </b:DataTrigger>
 
-                                        <b:DataTrigger Binding="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}" Value="Information">
+                                        <b:DataTrigger
+                                            Binding="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}"
+                                            Value="Information">
                                             <b:ChangePropertyAction TargetName="Icon" PropertyName="Content">
                                                 <b:ChangePropertyAction.Value>
                                                     <Path
-                                                        Data="M11.331985,10.669C11.137986,10.669 10.976986,10.731 10.852986,10.855999 10.728987,10.981 10.665987,11.141 10.665987,11.335L10.665987,14.668C10.665987,14.862 10.727986,15.021999 10.852986,15.146999 10.977986,15.271999 11.136986,15.334 11.331985,15.334L13.331984,15.334 13.331984,22 11.331985,22C11.137986,22 10.976986,22.063 10.852986,22.188 10.728987,22.313 10.665987,22.471999 10.665987,22.667L10.665987,26C10.665987,26.195 10.727986,26.354 10.852986,26.479 10.977986,26.604 11.136986,26.667 11.331985,26.667L20.665975,26.667C20.860975,26.667 21.019974,26.604 21.144974,26.479 21.269974,26.354 21.332974,26.193999 21.332974,26L21.330974,26.002 21.330974,22.667999C21.330974,22.474 21.267974,22.313999 21.143974,22.188999 21.019974,22.063999 20.859975,22.002 20.664975,22.002L18.665977,22.002 18.665977,11.335C18.665977,11.141 18.602977,10.981 18.477977,10.855999 18.352978,10.731 18.192978,10.669 17.998978,10.669z M13.999983,3.3329997C13.805983,3.3329997 13.646983,3.3959994 13.520984,3.5209994 13.394983,3.6459994 13.332984,3.8049994 13.332984,3.9999995L13.332984,7.3329997C13.332984,7.5269995 13.395984,7.6879995 13.520984,7.8119993 13.645983,7.9359996 13.805983,7.9989996 13.999983,7.9989996L17.999978,7.9989996C18.194978,7.9989996 18.353978,7.9369996 18.478977,7.8119993 18.603977,7.6869996 18.666977,7.5269995 18.666977,7.3329997L18.666977,3.9999995C18.666977,3.8049994 18.603977,3.6459994 18.478977,3.5209994 18.353978,3.3959994 18.193978,3.3329997 17.999978,3.3329997z M15.99998,0C18.902977,0 21.579974,0.7149992 24.030971,2.1459999 26.481968,3.5769997 28.422966,5.5179996 29.853964,7.9689994L29.855964,7.9689994C31.285962,10.42 32.000961,13.097 32.000961,16 32.000961,18.901999 31.285962,21.58 29.854964,24.030999 28.423966,26.482 26.482968,28.424 24.031971,29.854 21.579974,31.285 18.901977,32 15.99998,32 13.097983,32 10.419987,31.285 7.9689894,29.854 5.517992,28.423 3.5769958,26.482 2.1459961,24.030999 0.71499825,21.58 0,18.901999 0,16 0,13.098 0.71499825,10.421 2.1459961,7.9689994 3.5769958,5.5169997 5.517992,3.5769997 7.9689894,2.1459999 10.419987,0.7149992 13.096984,0 15.99998,0z"
-                                                        Stretch="Uniform" Fill="#FFFFFFFF" Margin="0,0,0,0" />
+                                                        Data="M13.5,4A1.5,1.5 0 0,0 12,5.5A1.5,1.5 0 0,0 13.5,7A1.5,1.5 0 0,0 15,5.5A1.5,1.5 0 0,0 13.5,4M13.14,8.77C11.95,8.87 8.7,11.46 8.7,11.46C8.5,11.61 8.56,11.6 8.72,11.88C8.88,12.15 8.86,12.17 9.05,12.04C9.25,11.91 9.58,11.7 10.13,11.36C12.25,10 10.47,13.14 9.56,18.43C9.2,21.05 11.56,19.7 12.17,19.3C12.77,18.91 14.38,17.8 14.54,17.69C14.76,17.54 14.6,17.42 14.43,17.17C14.31,17 14.19,17.12 14.19,17.12C13.54,17.55 12.35,18.45 12.19,17.88C12,17.31 13.22,13.4 13.89,10.71C14,10.07 14.3,8.67 13.14,8.77Z"
+                                                        Stretch="Uniform"
+                                                        Fill="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}"
+                                                        Margin="0,0,0,0" />
                                                 </b:ChangePropertyAction.Value>
                                             </b:ChangePropertyAction>
                                         </b:DataTrigger>
 
-                                        <b:DataTrigger Binding="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}" Value="Question">
+                                        <b:DataTrigger
+                                            Binding="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}"
+                                            Value="Question">
                                             <b:ChangePropertyAction TargetName="Icon" PropertyName="Content">
                                                 <b:ChangePropertyAction.Value>
                                                     <Path
-                                                        Data="M14.580002,23.394012L14.580002,26.235001 17.18399,26.235001 17.18399,23.394012z M16.117996,5.7660065C14.539993,5.7660065 13.278992,6.2390137 12.332993,7.1880035 10.991989,8.5250092 10.320999,10.223007 10.320999,12.27301L13.043991,12.27301C13.043991,10.695007 13.437988,9.5130005 14.22699,8.7230072 14.697998,8.25 15.289001,8.0130005 16,8.0130005 16.867996,8.0130005 17.537003,8.25 18.009995,8.7230072 18.561996,9.2750092 18.838989,10.106003 18.838989,11.207001 18.838989,12.077011 18.522995,12.827011 17.89299,13.455002 16.789001,14.561005 16.039001,15.429001 15.644989,16.061005 15.090988,16.92601 14.817001,18.228012 14.817001,19.964005L16.947998,19.964005C16.947998,18.545013 17.302002,17.478012 18.009995,16.767014 18.955994,15.824005 19.705994,15.074005 20.259995,14.522003 21.205002,13.574005 21.679001,12.432007 21.679001,11.090012 21.679001,9.5130005 21.166,8.2109985 20.14299,7.1880035 19.194992,6.2390137 17.853989,5.7660065 16.117996,5.7660065z M16,0C24.819992,0 32,7.178009 32,16.001007 32,24.822006 24.819992,32 16,32 7.1759949,32 0,24.822006 0,16.001007 0,7.178009 7.1759949,0 16,0z"
-                                                        Stretch="Uniform" Fill="#FFFFFFFF" Margin="0,0,0,0"
-                                                        RenderTransformOrigin="0.5,0.5" />
+                                                        Data="M6.1720122,26.640015L12.506012,26.640015 12.506012,31.999023 6.1720122,31.999023z M6.169998,22.900024L6.1737445,22.900024 6.1720122,23.064941z M10.068994,0C13.318025,0 15.754005,0.81201172 17.703046,2.4359741 19.490037,4.0609741 20.463,6.335022 20.463,9.0949707 20.463,10.882019 19.976001,12.669006 18.839034,14.130005 17.701032,15.591003 16.402993,17.052979 14.777989,18.028015 13.967013,18.677002 13.316011,19.328003 12.992036,20.139038 12.667023,20.78894 12.505035,21.764038 12.505035,22.900024L6.1737445,22.900024 6.1758092,22.703424C6.2137826,20.916021 6.5366138,19.440285 7.1460131,18.680054 7.7950018,17.705994 8.9320286,16.567993 10.71902,15.268982 11.693022,14.45697 12.506012,13.481995 13.155,12.507996 13.805026,11.533997 14.129001,10.395996 14.129001,9.2589722 14.129001,7.9589844 13.805026,6.822998 13.155,6.1740112 12.506012,5.3619995 11.531033,5.0360107 10.232019,5.0360107 9.0949925,5.0360107 8.2829788,5.3610229 7.4720028,6.0100098 6.6599892,6.6589966 6.3339995,7.6339722 6.3339995,8.7709961L0,8.7709961 0,8.6079712C1.7478305E-07,5.8480225 0.81097621,3.7360229 2.7600165,2.2739868 4.7099722,0.81201172 6.9829882,0 10.068994,0z"
+                                                        Stretch="Uniform"
+                                                        Fill="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}"
+                                                        Margin="0,0,0,0" />
                                                 </b:ChangePropertyAction.Value>
                                             </b:ChangePropertyAction>
                                         </b:DataTrigger>
 
-                                        <b:DataTrigger Binding="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}" Value="Stop">
+                                        <b:DataTrigger
+                                            Binding="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}"
+                                            Value="Stop">
                                             <b:ChangePropertyAction TargetName="Icon" PropertyName="Content">
                                                 <b:ChangePropertyAction.Value>
                                                     <Path
-                                                        Data="F1 M 40,20C 40,31.0457 31.0457,40 20,40C 8.95431,40 1.90735e-006,31.0457 1.90735e-006,20C 1.90735e-006,8.9543 8.95431,1.27157e-006 20,1.27157e-006C 31.0457,1.27157e-006 40,8.9543 40,20 Z M 20,4.00001C 11.1635,4.00001 4.00001,11.1635 4.00001,20C 4.00001,28.8366 11.1635,36 20,36C 28.8366,36 36,28.8366 36,20C 36,11.1635 28.8365,4.00001 20,4.00001 Z M 20,34C 16.4939,34 13.2889,32.7112 10.8328,30.5815L 30.5815,10.8328C 32.7112,13.2889 34,16.4939 34,20C 34,27.732 27.732,34 20,34 Z M 20,5.99999C 23.5061,5.99999 26.7111,7.28882 29.1673,9.41853L 9.41853,29.1673C 7.28881,26.7111 5.99999,23.5061 5.99999,20C 5.99999,12.268 12.268,5.99999 20,5.99999 Z "
-                                                        Stretch="Uniform" Fill="#FFFFFFFF" />
+                                                        Data="M26.580956,6.8329883L6.8329535,26.581059 6.8670793,26.611267C9.4062033,28.804157 12.611519,30 16,30 19.738998,30 23.25499,28.543945 25.898987,25.898926 28.542999,23.255005 30,19.739014 30,16 30,12.611519 28.803381,9.4062033 26.611095,6.8670454z M16,2C12.260986,2 8.7449951,3.4559326 6.1009979,6.1009521 3.4570007,8.7449951 2,12.260986 2,16 2,19.388481 3.1966188,22.593796 5.3888941,25.132864L5.4190583,25.166948 25.167076,5.4188623 25.132906,5.3886132C22.593781,3.1957417,19.388468,2,16,2z M16,0C20.272995,0 24.291992,1.6639404 27.312988,4.6870117 30.334991,7.7080078 32,11.726929 32,16 32,20.272949 30.334991,24.291992 27.312988,27.312988 24.291992,30.335938 20.272995,32 16,32 11.72699,32 7.7079926,30.335938 4.6869965,27.312988 1.6649933,24.291992 0,20.272949 0,16 0,11.726929 1.6649933,7.7080078 4.6869965,4.6870117 7.7079926,1.6639404 11.72699,0 16,0z"
+                                                        Stretch="Uniform"
+                                                        Fill="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}" />
                                                 </b:ChangePropertyAction.Value>
                                             </b:ChangePropertyAction>
                                         </b:DataTrigger>
 
-                                        <b:DataTrigger Binding="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}" Value="Successful">
+                                        <b:DataTrigger
+                                            Binding="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}"
+                                            Value="Successful">
                                             <b:ChangePropertyAction TargetName="Icon" PropertyName="Content">
                                                 <b:ChangePropertyAction.Value>
                                                     <Path
                                                         Data="M27.903015,0L32,4.0970465 12.369019,23.728029 11.685974,24.520998 0,14.441042 3.7819824,10.054994 11.330017,16.567019z"
-                                                        Stretch="Uniform" Fill="#FFFFFFFF" />
+                                                        Stretch="Uniform"
+                                                        Fill="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}" />
                                                 </b:ChangePropertyAction.Value>
                                             </b:ChangePropertyAction>
                                         </b:DataTrigger>
 
-                                        <b:DataTrigger Binding="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}" Value="None">
+                                        <b:DataTrigger
+                                            Binding="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}"
+                                            Value="None">
                                             <b:ChangePropertyAction TargetName="Icon" PropertyName="Content"
                                                                     Value="{TemplateBinding CustomIcon}" />
                                         </b:DataTrigger>
@@ -277,5 +343,114 @@
         </Setter>
     </Style>
 
+    <Style TargetType="{x:Type notification:NotificationControl}">
+        <Setter Property="Margin" Value="10,5,10,5" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="LayoutTransform">
+            <Setter.Value>
+                <ScaleTransform />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="10" Direction="0" ShadowDepth="0" Opacity=".5" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type notification:NotificationControl}">
+                    <Border Padding="10"
+                        MinHeight="{Binding NotificationItem.Height, RelativeSource={RelativeSource TemplatedParent}}"
+                        Width="{Binding NotificationItem.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                        Background="{Binding NotificationItem.Background, RelativeSource={RelativeSource TemplatedParent}}"
+                        BorderBrush="{TemplateBinding BorderBrush}">
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="MouseLeftButtonUp">
+                                <b:CallMethodAction MethodName="Close" TargetObject="{Binding Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition x:Name="r1" Height="Auto" />
+                                <RowDefinition x:Name="r2" Height="*" />
+                                <RowDefinition x:Name="r3" Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Border  BorderThickness="0" Margin="0,0,10,0" BorderBrush="#32FFFFFF" Grid.Column="0" Grid.Row="0"
+                                    Grid.RowSpan="3">
+                                <Path Width="32" Height="32"  Stretch="Uniform" VerticalAlignment="Center" HorizontalAlignment="Center" Stroke="{Binding NotificationItem.IconStroke, RelativeSource={RelativeSource TemplatedParent}}" Fill="{Binding NotificationItem.IconFill, RelativeSource={RelativeSource TemplatedParent}}" Data="{Binding NotificationItem.IconPath, RelativeSource={RelativeSource TemplatedParent}}"></Path>
+                              
+                            </Border>
+                            <TextBlock x:Name="label" VerticalAlignment="Center" 
+                                       Grid.Column="1" Grid.Row="0" 
+                                       Foreground="{Binding NotificationItem.ForegroundTitle, RelativeSource={RelativeSource TemplatedParent}}"
+                                       Text="{Binding NotificationItem.Title, RelativeSource={RelativeSource TemplatedParent}}"
+                                       FontFamily="{Binding NotificationItem.FontFamilyTitle, RelativeSource={RelativeSource TemplatedParent}}"
+                                       FontSize="{Binding NotificationItem.FontSizeTitle, RelativeSource={RelativeSource TemplatedParent}}"
+                                       TextAlignment="Left" TextWrapping="Wrap" FontWeight="Bold" />
 
+                            <TextBlock 
+                                FontSize="{Binding NotificationItem.FontSizeMessage, RelativeSource={RelativeSource TemplatedParent}}"
+                                x:Name="msj" Margin="0,5,0,0" Grid.Column="1" Grid.Row="1"
+                                FontFamily="{Binding NotificationItem.FontFamilyMessage, RelativeSource={RelativeSource TemplatedParent}}"
+                                Foreground="{Binding NotificationItem.ForegroundMessage, RelativeSource={RelativeSource TemplatedParent}}"
+                                Text="{Binding NotificationItem.Message, RelativeSource={RelativeSource TemplatedParent}}"
+                                TextWrapping="Wrap" VerticalAlignment="Top" />
+
+                            <ContentControl Background="Black" Margin="0,5,0,0"
+                                Grid.Row="2" Grid.Column="1"
+                                Content="{Binding NotificationItem.ActionControl, RelativeSource={RelativeSource TemplatedParent}}"
+                                VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                        </Grid>
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+
+                        <EventTrigger RoutedEvent="Loaded">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1"
+                                                     Duration="0:0:.4" />
+                                    <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleX" From="0"
+                                                     To="1" Duration="0:0:.2" />
+                                    <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleY" From="0"
+                                                     To="1" Duration="0:0:.2" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <DataTrigger
+                            Binding="{Binding NotificationItem.Message, RelativeSource={RelativeSource Self}}"
+                            Value="{x:Null}">
+                            <Setter Property="Visibility" TargetName="msj" Value="Collapsed" />
+                            <Setter Property="Height" TargetName="r1" Value="*" />
+                            <Setter Property="Height" TargetName="r2" Value="Auto" />
+                            <Setter Property="Margin" TargetName="label" Value="10" />
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding NotificationItem.Title, RelativeSource={RelativeSource Self}}"
+                            Value="{x:Null}">
+                            <Setter Property="Visibility" TargetName="label" Value="Collapsed" />
+                            <Setter Property="Height" TargetName="r1" Value="Auto" />
+                            <Setter Property="Height" TargetName="r2" Value="*" />
+                            <Setter Property="Margin" TargetName="msj" Value="10" />
+                        </DataTrigger>
+                        <EventTrigger RoutedEvent="notification:NotificationControl.NotificationClosed">
+                            <BeginStoryboard>
+                                <Storyboard Duration="0:0:.3">
+                                    <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleX" From="1"
+                                                     To="0" Duration="0:0:.3" />
+                                    <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleY" From="1"
+                                                     To="0" Duration="0:0:.3" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>
