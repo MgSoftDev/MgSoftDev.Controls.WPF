@@ -2,7 +2,6 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Shapes;
-using MgSoftDev.Controls.WPF.MVVM;
 
 namespace MgSoftDev.Controls.WPF.MessageBox
 {

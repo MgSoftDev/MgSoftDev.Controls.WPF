@@ -1,0 +1,90 @@
+﻿<UserControl x:Class="MgSoftDev.Controls.WPF.WaitProgressAnimationControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:MgSoftDev.Controls.WPF"
+             xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <UniformGrid  Columns="5" Rows="1" Margin="0,0,5,0">
+            <b:Interaction.Triggers>
+                <b:EventTrigger EventName="Loaded">
+                    <b:ControlStoryboardAction>
+                        <b:ControlStoryboardAction.Storyboard>
+                            <Storyboard RepeatBehavior="Forever">
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path"
+                                                               Storyboard.TargetProperty="(Shape.Fill).(Brush.Opacity)">
+                                    <EasingDoubleKeyFrame KeyTime="00:00:00.0000000" Value="0" />
+                                    <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0" />
+                                    <EasingDoubleKeyFrame KeyTime="00:00:00.6000000" Value="1" />
+                                    <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="1" />
+                                    <EasingDoubleKeyFrame KeyTime="00:00:04.8000000" Value="0" />
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path1"
+                                                               Storyboard.TargetProperty="(Shape.Fill).(Brush.Opacity)">
+                                    <EasingDoubleKeyFrame KeyTime="00:00:00.0000000" Value="0" />
+                                    <EasingDoubleKeyFrame KeyTime="00:00:00.9000000" Value="0" />
+                                    <EasingDoubleKeyFrame KeyTime="00:00:01.2000000" Value="1" />
+                                    <EasingDoubleKeyFrame KeyTime="00:00:03.9000000" Value="1" />
+                                    <EasingDoubleKeyFrame KeyTime="00:00:04.2000000" Value="0" />
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path2"
+                                                               Storyboard.TargetProperty="(Shape.Fill).(Brush.Opacity)">
+                                    <EasingDoubleKeyFrame KeyTime="00:00:00.0000000" Value="0" />
+                                    <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0" />
+                                    <EasingDoubleKeyFrame KeyTime="00:00:01.8000000" Value="0.99" />
+                                    <EasingDoubleKeyFrame KeyTime="00:00:03.3000000" Value="0.99" />
+                                    <EasingDoubleKeyFrame KeyTime="00:00:03.6000000" Value="0" />
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path3"
+                                                               Storyboard.TargetProperty="(Shape.Fill).(Brush.Opacity)">
+                                    <EasingDoubleKeyFrame KeyTime="00:00:00.0000000" Value="0" />
+                                    <EasingDoubleKeyFrame KeyTime="00:00:02.1000000" Value="0" />
+                                    <EasingDoubleKeyFrame KeyTime="00:00:02.4000000" Value="1" />
+                                    <EasingDoubleKeyFrame KeyTime="00:00:02.7000000" Value="1" />
+                                    <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0" />
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </b:ControlStoryboardAction.Storyboard>
+                    </b:ControlStoryboardAction>
+                </b:EventTrigger>
+            </b:Interaction.Triggers>
+            <Path Margin="5,0,0,0" MinWidth="3" MinHeight="3" MaxHeight="32" MaxWidth="32" Fill="White"
+                  Data="F1 M 4.40036,0.40004C 6.60968,0.40004 8.4007,2.19106 8.4007,4.40041C 8.4007,6.6097 6.60968,8.40071 4.40036,8.40071C 2.19104,8.40071 0.400024,6.6097 0.400024,4.40041C 0.400024,2.19106 2.19104,0.40004 4.40036,0.40004 Z "
+                  HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform">
+            </Path>
+            <Path x:Name="path" Margin="5,0,0,0" MinWidth="3" MinHeight="3" MaxHeight="32" MaxWidth="32"
+                  Data="F1 M 4.40036,0.40004C 6.60968,0.40004 8.4007,2.19106 8.4007,4.40041C 8.4007,6.6097 6.60968,8.40071 4.40036,8.40071C 2.19104,8.40071 0.400024,6.6097 0.400024,4.40041C 0.400024,2.19106 2.19104,0.40004 4.40036,0.40004 Z "
+                  HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform">
+                <Path.Fill>
+                    <SolidColorBrush Color="White" Opacity="0" />
+                </Path.Fill>
+            </Path>
+            <Path x:Name="path1" Margin="5,0,0,0" MinWidth="3" MinHeight="3" MaxHeight="32" MaxWidth="32"
+                  Data="F1 M 4.40036,0.40004C 6.60968,0.40004 8.4007,2.19106 8.4007,4.40041C 8.4007,6.6097 6.60968,8.40071 4.40036,8.40071C 2.19104,8.40071 0.400024,6.6097 0.400024,4.40041C 0.400024,2.19106 2.19104,0.40004 4.40036,0.40004 Z "
+                  HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform">
+                <Path.Fill>
+                    <SolidColorBrush Color="White" Opacity="0" />
+                </Path.Fill>
+            </Path>
+            <Path x:Name="path2" Margin="5,0,0,0" MinWidth="3" MinHeight="3" MaxHeight="32" MaxWidth="32"
+                  Data="F1 M 4.40036,0.40004C 6.60968,0.40004 8.4007,2.19106 8.4007,4.40041C 8.4007,6.6097 6.60968,8.40071 4.40036,8.40071C 2.19104,8.40071 0.400024,6.6097 0.400024,4.40041C 0.400024,2.19106 2.19104,0.40004 4.40036,0.40004 Z "
+                  HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform">
+                <Path.Fill>
+                    <SolidColorBrush Color="White" Opacity="0" />
+                </Path.Fill>
+            </Path>
+            <Path x:Name="path3" Margin="5,0,0,0" MinWidth="3" MinHeight="3" MaxHeight="32" MaxWidth="32"
+                  Data="F1 M 4.40036,0.40004C 6.60968,0.40004 8.4007,2.19106 8.4007,4.40041C 8.4007,6.6097 6.60968,8.40071 4.40036,8.40071C 2.19104,8.40071 0.400024,6.6097 0.400024,4.40041C 0.400024,2.19106 2.19104,0.40004 4.40036,0.40004 Z "
+                  HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform">
+                <Path.Fill>
+                    <SolidColorBrush Color="White" Opacity="0" />
+                </Path.Fill>
+            </Path>
+        </UniformGrid>
+
+
+    </Grid>
+</UserControl>

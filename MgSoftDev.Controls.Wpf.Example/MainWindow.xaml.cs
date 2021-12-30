@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -125,6 +126,21 @@ namespace MgSoftDev.Controls.Wpf.Example
 
                 Notify.ShowError("Mensaje de Error", "Como frutas y verduras",_=>_.MessageFontSize(10).Duration(TimeSpan.Zero));
             });
+        }
+
+        private  void ButtonBase_OnClick11(object sender, RoutedEventArgs e)
+        {
+            wait.Show = true;
+
+            
+
+        }
+
+        private void ButtonBase_OnClick12(object sender, RoutedEventArgs e)
+        {
+
+            wait.Show = false;
+
         }
     }
 }

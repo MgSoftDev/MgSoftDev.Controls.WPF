@@ -5,28 +5,93 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MgSoftDev.Controls.Wpf.Example"
         xmlns:messageBox="clr-namespace:MgSoftDev.Controls.WPF.MessageBox;assembly=MgSoftDev.Controls.WPF"
+        xmlns:wpf="clr-namespace:MgSoftDev.Controls.WPF;assembly=MgSoftDev.Controls.WPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
-        
-           
+
+
+        <Storyboard x:Key="Storyboard1">
+            <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" Storyboard.TargetName="path" Storyboard.TargetProperty="(Shape.Fill).(Brush.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.6000000" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.8000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path1" Storyboard.TargetProperty="(Shape.Fill).(Brush.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.9000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.2000000" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.9000000" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.2000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path2" Storyboard.TargetProperty="(Shape.Fill).(Brush.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.8000000" Value="0.99"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.3000000" Value="0.99"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.6000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path3" Storyboard.TargetProperty="(Shape.Fill).(Brush.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:02.1000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.4000000" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.7000000" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+
     </Window.Resources>
     <Grid>
-<WrapPanel>
-    <Button Content="Notify Info" Click="ButtonBase_OnClick"></Button>
-    <Button Content="Notify Susses" Click="ButtonBase1_OnClick"></Button>
-    <Button Content="Notify Warn" Click="ButtonBase2_OnClick"></Button>
-    <Button Content="Notify error" Click="ButtonBase3_OnClick"></Button>
-            <Button Content="ShowAsterisk" Click="ButtonBase_OnClick1"></Button>
-            <Button Content="ShowError" Click="ButtonBase_OnClick2"></Button>
-            <Button Content="ShowExclamation" Click="ButtonBase_OnClick3"></Button>
-            <Button Content="ShowHand" Click="ButtonBase_OnClick4"></Button>
-            <Button Content="ShowInformation" Click="ButtonBase_OnClick5"></Button>
-            <Button Content="ShowNone" Click="ButtonBase_OnClick6"></Button>
-            <Button Content="ShowQuestion" Click="ButtonBase_OnClick7"></Button>
-            <Button Content="ShowStop" Click="ButtonBase_OnClick8"></Button>
-            <Button Content="ShowSuccessful" Click="ButtonBase_OnClick9"></Button>
-            <Button Content="ShowWarning" Click="ButtonBase_OnClick10"></Button>
-        </WrapPanel>
+        <wpf:TouchScrollViewer VerticalScrollBarVisibility="Auto">
+            <WrapPanel>
+                <Button Content="Notify Info" Click="ButtonBase_OnClick"></Button>
+                <Button Content="Notify Susses" Click="ButtonBase1_OnClick"></Button>
+                <Button Content="Notify Warn" Click="ButtonBase2_OnClick"></Button>
+                <Button Content="Notify error" Click="ButtonBase3_OnClick"></Button>
+                <Button Content="ShowAsterisk" Click="ButtonBase_OnClick1"></Button>
+                <Button Content="ShowError" Click="ButtonBase_OnClick2"></Button>
+                <Button Content="ShowExclamation" Click="ButtonBase_OnClick3"></Button>
+                <Button Content="ShowHand" Click="ButtonBase_OnClick4"></Button>
+                <Button Content="ShowInformation" Click="ButtonBase_OnClick5"></Button>
+                <Button Content="ShowNone" Click="ButtonBase_OnClick6"></Button>
+                <Button Content="ShowQuestion" Click="ButtonBase_OnClick7"></Button>
+                <Button Content="ShowStop" Click="ButtonBase_OnClick8"></Button>
+                <Button Content="ShowSuccessful" Click="ButtonBase_OnClick9"></Button>
+                <Button Content="ShowWarning" Click="ButtonBase_OnClick10"></Button>
+                <Button Content="Start Wait" Click="ButtonBase_OnClick11"></Button>
+                <Button Content="Stop Wait" Click="ButtonBase_OnClick12"></Button>
+                <wpf:WaitControl  Width="100" Height="50" x:Name="wait" Text="Wait Please">
+                    <!--<wpf:WaitControl.ShowContent>
+                        <StackPanel>
+
+                            <TextBlock Text="wait"></TextBlock>
+                        </StackPanel>
+                    </wpf:WaitControl.ShowContent>-->
+                    <Border  Background="Black"></Border>
+                </wpf:WaitControl>
+                <UniformGrid  Columns="5" Rows="1" Width="100" Height="50">
+                    <Path Margin="5,0,0,0" MinWidth="10" MinHeight="10" MaxHeight="32" MaxWidth="32"  Fill="Black" Data="F1 M 4.40036,0.40004C 6.60968,0.40004 8.4007,2.19106 8.4007,4.40041C 8.4007,6.6097 6.60968,8.40071 4.40036,8.40071C 2.19104,8.40071 0.400024,6.6097 0.400024,4.40041C 0.400024,2.19106 2.19104,0.40004 4.40036,0.40004 Z " HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform"></Path>
+                    <Path x:Name="path" Margin="5,0,0,0" MinWidth="10" MinHeight="10" MaxHeight="32" MaxWidth="32" Data="F1 M 4.40036,0.40004C 6.60968,0.40004 8.4007,2.19106 8.4007,4.40041C 8.4007,6.6097 6.60968,8.40071 4.40036,8.40071C 2.19104,8.40071 0.400024,6.6097 0.400024,4.40041C 0.400024,2.19106 2.19104,0.40004 4.40036,0.40004 Z " HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform">
+                        <Path.Fill>
+                            <SolidColorBrush Color="Black" Opacity="1"/>
+                        </Path.Fill>
+                    </Path>
+                    <Path x:Name="path1" Margin="5,0,0,0" MinWidth="10" MinHeight="10" MaxHeight="32" MaxWidth="32" Data="F1 M 4.40036,0.40004C 6.60968,0.40004 8.4007,2.19106 8.4007,4.40041C 8.4007,6.6097 6.60968,8.40071 4.40036,8.40071C 2.19104,8.40071 0.400024,6.6097 0.400024,4.40041C 0.400024,2.19106 2.19104,0.40004 4.40036,0.40004 Z " HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform">
+                        <Path.Fill>
+                            <SolidColorBrush Color="Black" Opacity="1"/>
+                        </Path.Fill>
+                    </Path>
+                    <Path x:Name="path2" Margin="5,0,0,0" MinWidth="10" MinHeight="10" MaxHeight="32" MaxWidth="32" Data="F1 M 4.40036,0.40004C 6.60968,0.40004 8.4007,2.19106 8.4007,4.40041C 8.4007,6.6097 6.60968,8.40071 4.40036,8.40071C 2.19104,8.40071 0.400024,6.6097 0.400024,4.40041C 0.400024,2.19106 2.19104,0.40004 4.40036,0.40004 Z " HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform">
+                        <Path.Fill>
+                            <SolidColorBrush Color="Black" Opacity="1"/>
+                        </Path.Fill>
+                    </Path>
+                    <Path x:Name="path3" Margin="5,0,0,0" MinWidth="10" MinHeight="10" MaxHeight="32" MaxWidth="32" Data="F1 M 4.40036,0.40004C 6.60968,0.40004 8.4007,2.19106 8.4007,4.40041C 8.4007,6.6097 6.60968,8.40071 4.40036,8.40071C 2.19104,8.40071 0.400024,6.6097 0.400024,4.40041C 0.400024,2.19106 2.19104,0.40004 4.40036,0.40004 Z " HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform">
+                        <Path.Fill>
+                            <SolidColorBrush Color="Black" Opacity="1"/>
+                        </Path.Fill>
+                    </Path>
+                </UniformGrid>
+            </WrapPanel>
+        </wpf:TouchScrollViewer>
     </Grid>
 </Window>

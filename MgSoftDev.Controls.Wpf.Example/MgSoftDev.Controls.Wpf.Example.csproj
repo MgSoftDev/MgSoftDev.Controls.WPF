@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MgSoftDev.Controls.WPF.MaterialTheme\MgSoftDev.Controls.WPF.MaterialTheme.csproj" />
     <ProjectReference Include="..\MgSoftDev.Controls.WPF\MgSoftDev.Controls.WPF.csproj" />
   </ItemGroup>
 

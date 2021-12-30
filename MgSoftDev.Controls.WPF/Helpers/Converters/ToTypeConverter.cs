@@ -4,7 +4,7 @@ using System.Windows.Data;
 
 namespace MgSoftDev.Controls.WPF.Helpers.Converters
 {
-    public class ToTypeConverter: IValueConverter
+    internal class ToTypeConverter: IValueConverter
     {
         public object Convert(object      value, Type targetType, object parameter,
                               CultureInfo culture)
