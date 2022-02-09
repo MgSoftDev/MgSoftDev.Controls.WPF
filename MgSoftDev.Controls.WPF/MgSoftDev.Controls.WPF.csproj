@@ -9,6 +9,8 @@
     <Company>MgSoftDev</Company>
     <Copyright>MgSoftDev</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/MgSoftDev/MgSoftDev.Controls.WPF</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/MgSoftDev/MgSoftDev.Controls.WPF</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

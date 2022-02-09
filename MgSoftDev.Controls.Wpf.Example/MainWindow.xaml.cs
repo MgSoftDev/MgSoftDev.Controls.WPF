@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using MgSoftDev.Controls.WPF.MessageBox;
 using MgSoftDev.Controls.WPF.Notification;
 
@@ -30,7 +31,20 @@ namespace MgSoftDev.Controls.Wpf.Example
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            Notify.ShowInformation("Mensaje de informacion","Como frutas y verduras");
+            Application.Current.Dispatcher.Invoke(()=>
+            {
+                Task.Run(() =>
+                {
+
+
+                    //Application.Current.Dispatcher.Invoke(() =>
+                    //{
+                        Notify.ShowInformation("Mensaje de informacion", "Como frutas y verduras");
+                    //}, DispatcherPriority.SystemIdle);
+
+
+                }).Wait();
+            }, DispatcherPriority.SystemIdle);
         }
 
         private void ButtonBase_OnClick1(object sender, RoutedEventArgs e)

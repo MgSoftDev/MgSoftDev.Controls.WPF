@@ -6,8 +6,9 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
-        <ResourceDictionary.MergedDictionaries>
-            <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="Indigo" SecondaryColor="Orange" />
+            
+            <ResourceDictionary.MergedDictionaries>
+            <materialDesign:BundledTheme BaseTheme="Dark" PrimaryColor="Indigo" SecondaryColor="Orange" />
             <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
             <ResourceDictionary
                 Source="pack://application:,,,/MgSoftDev.Controls.WPF;component/Themes/Default.xaml" />
@@ -15,7 +16,9 @@
             <ResourceDictionary
                 Source="pack://application:,,,/MgSoftDev.Controls.WPF.MaterialTheme;component/MaterialDesignTheme.xaml" />
         </ResourceDictionary.MergedDictionaries>
-        
+            
 </ResourceDictionary>
+      
+
     </Application.Resources>
 </Application>

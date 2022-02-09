@@ -8,6 +8,8 @@
     <Company>MgSoftDev</Company>
     <Copyright>MgSoftDev</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/MgSoftDev/MgSoftDev.Controls.WPF</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/MgSoftDev/MgSoftDev.Controls.WPF</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,6 +18,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MgSoftDev.Controls.WPF\MgSoftDev.Controls.WPF.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="MgTabControlTheme.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 
 </Project>

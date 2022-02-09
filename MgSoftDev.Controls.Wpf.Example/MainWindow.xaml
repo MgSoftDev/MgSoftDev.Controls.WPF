@@ -6,7 +6,13 @@
         xmlns:local="clr-namespace:MgSoftDev.Controls.Wpf.Example"
         xmlns:messageBox="clr-namespace:MgSoftDev.Controls.WPF.MessageBox;assembly=MgSoftDev.Controls.WPF"
         xmlns:wpf="clr-namespace:MgSoftDev.Controls.WPF;assembly=MgSoftDev.Controls.WPF"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="{materialDesign:MaterialDesignFont}"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
 
@@ -37,7 +43,9 @@
                 <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
-
+        
+       
+        
 
     </Window.Resources>
     <Grid>
@@ -57,7 +65,7 @@
                 <Button Content="ShowStop" Click="ButtonBase_OnClick8"></Button>
                 <Button Content="ShowSuccessful" Click="ButtonBase_OnClick9"></Button>
                 <Button Content="ShowWarning" Click="ButtonBase_OnClick10"></Button>
-                <Button Content="Start Wait" Click="ButtonBase_OnClick11"></Button>
+                <Button Content="Start Wait"  Click="ButtonBase_OnClick11"></Button>
                 <Button Content="Stop Wait" Click="ButtonBase_OnClick12"></Button>
                 <wpf:WaitControl  Width="100" Height="50" x:Name="wait" Text="Wait Please">
                     <!--<wpf:WaitControl.ShowContent>
@@ -91,6 +99,15 @@
                         </Path.Fill>
                     </Path>
                 </UniformGrid>
+
+                <wpf:MgTabControl    Width="500" Height="200"  TabStripPlacement="Bottom" SelectedIndex="0">
+                    <!--<TabItem Header="hola">
+                        <materialDesign:Card Width="100" Height="100" ></materialDesign:Card>
+                    </TabItem>
+                    <TabItem Header="hola2">
+                        <Border  ></Border>
+                    </TabItem>-->
+                </wpf:MgTabControl>
             </WrapPanel>
         </wpf:TouchScrollViewer>
     </Grid>

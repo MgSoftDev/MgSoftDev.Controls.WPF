@@ -6,6 +6,13 @@
                     xmlns:sys="clr-namespace:System;assembly=System.Runtime"
                     xmlns:notification="clr-namespace:MgSoftDev.Controls.WPF.Notification"
                     xmlns:wpf="clr-namespace:MgSoftDev.Controls.WPF">
+
+   
+        <ResourceDictionary.MergedDictionaries>
+    <ResourceDictionary
+        Source="pack://application:,,,/MgSoftDev.Controls.WPF;component/Themes/MgTabControlTheme.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
     <converters:ToTypeConverter x:Key="ToTypeConverter" />
     <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
 

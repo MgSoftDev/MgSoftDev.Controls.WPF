@@ -5,6 +5,7 @@
 
         <ResourceDictionary.MergedDictionaries>
     <ResourceDictionary Source="pack://application:,,,/MgSoftDev.Controls.WPF.MaterialTheme;component/MessageBoxDialogControl.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/MgSoftDev.Controls.WPF.MaterialTheme;component/MgTabControlTheme.xaml" />
 </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>
