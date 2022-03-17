@@ -7,10 +7,10 @@
                     xmlns:notification="clr-namespace:MgSoftDev.Controls.WPF.Notification"
                     xmlns:wpf="clr-namespace:MgSoftDev.Controls.WPF">
 
-   
-        <ResourceDictionary.MergedDictionaries>
-    <ResourceDictionary
-        Source="pack://application:,,,/MgSoftDev.Controls.WPF;component/Themes/MgTabControlTheme.xaml" />
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary
+            Source="pack://application:,,,/MgSoftDev.Controls.WPF;component/Themes/MgTabControlTheme.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <converters:ToTypeConverter x:Key="ToTypeConverter" />
@@ -373,13 +373,14 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type notification:NotificationControl}">
                     <Border Padding="10"
-                        MinHeight="{Binding NotificationItem.Height, RelativeSource={RelativeSource TemplatedParent}}"
-                        Width="{Binding NotificationItem.Width, RelativeSource={RelativeSource TemplatedParent}}"
-                        Background="{Binding NotificationItem.Background, RelativeSource={RelativeSource TemplatedParent}}"
-                        BorderBrush="{TemplateBinding BorderBrush}">
+                            MinHeight="{Binding NotificationItem.Height, RelativeSource={RelativeSource TemplatedParent}}"
+                            Width="{Binding NotificationItem.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                            Background="{Binding NotificationItem.Background, RelativeSource={RelativeSource TemplatedParent}}"
+                            BorderBrush="{TemplateBinding BorderBrush}">
                         <b:Interaction.Triggers>
                             <b:EventTrigger EventName="MouseLeftButtonUp">
-                                <b:CallMethodAction MethodName="Close" TargetObject="{Binding Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" />
+                                <b:CallMethodAction MethodName="Close"
+                                                    TargetObject="{Binding Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" />
                             </b:EventTrigger>
                         </b:Interaction.Triggers>
                         <Grid>
@@ -392,20 +393,26 @@
                                 <RowDefinition x:Name="r2" Height="*" />
                                 <RowDefinition x:Name="r3" Height="Auto" />
                             </Grid.RowDefinitions>
-                            <Border  BorderThickness="0" Margin="0,0,10,0" BorderBrush="#32FFFFFF" Grid.Column="0" Grid.Row="0"
+                            <Border BorderThickness="0" Margin="0,0,10,0" BorderBrush="#32FFFFFF" Grid.Column="0"
+                                    Grid.Row="0"
                                     Grid.RowSpan="3">
-                                <Path Width="32" Height="32"  Stretch="Uniform" VerticalAlignment="Center" HorizontalAlignment="Center" Stroke="{Binding NotificationItem.IconStroke, RelativeSource={RelativeSource TemplatedParent}}" Fill="{Binding NotificationItem.IconFill, RelativeSource={RelativeSource TemplatedParent}}" Data="{Binding NotificationItem.IconPath, RelativeSource={RelativeSource TemplatedParent}}"></Path>
-                              
+                                <Path Width="32" Height="32" Stretch="Uniform" VerticalAlignment="Center"
+                                      HorizontalAlignment="Center"
+                                      Stroke="{Binding NotificationItem.IconStroke, RelativeSource={RelativeSource TemplatedParent}}"
+                                      Fill="{Binding NotificationItem.IconFill, RelativeSource={RelativeSource TemplatedParent}}"
+                                      Data="{Binding NotificationItem.IconPath, RelativeSource={RelativeSource TemplatedParent}}">
+                                </Path>
+
                             </Border>
-                            <TextBlock x:Name="label" VerticalAlignment="Center" 
-                                       Grid.Column="1" Grid.Row="0" 
+                            <TextBlock x:Name="label" VerticalAlignment="Center"
+                                       Grid.Column="1" Grid.Row="0"
                                        Foreground="{Binding NotificationItem.ForegroundTitle, RelativeSource={RelativeSource TemplatedParent}}"
                                        Text="{Binding NotificationItem.Title, RelativeSource={RelativeSource TemplatedParent}}"
                                        FontFamily="{Binding NotificationItem.FontFamilyTitle, RelativeSource={RelativeSource TemplatedParent}}"
                                        FontSize="{Binding NotificationItem.FontSizeTitle, RelativeSource={RelativeSource TemplatedParent}}"
                                        TextAlignment="Left" TextWrapping="Wrap" FontWeight="Bold" />
 
-                            <TextBlock 
+                            <TextBlock
                                 FontSize="{Binding NotificationItem.FontSizeMessage, RelativeSource={RelativeSource TemplatedParent}}"
                                 x:Name="msj" Margin="0,5,0,0" Grid.Column="1" Grid.Row="1"
                                 FontFamily="{Binding NotificationItem.FontFamilyMessage, RelativeSource={RelativeSource TemplatedParent}}"
@@ -414,9 +421,9 @@
                                 TextWrapping="Wrap" VerticalAlignment="Top" />
 
                             <ContentControl Background="Black" Margin="0,5,0,0"
-                                Grid.Row="2" Grid.Column="1"
-                                Content="{Binding NotificationItem.ActionControl, RelativeSource={RelativeSource TemplatedParent}}"
-                                VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                                            Grid.Row="2" Grid.Column="1"
+                                            Content="{Binding NotificationItem.ActionControl, RelativeSource={RelativeSource TemplatedParent}}"
+                                            VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
                         </Grid>
 
                     </Border>
@@ -494,14 +501,14 @@
                        Cursor="Arrow" Grid.Column="1" Maximum="{TemplateBinding ScrollableHeight}" Minimum="0"
                        Grid.Row="0" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
                        Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
-                       ViewportSize="{TemplateBinding ViewportHeight}" Style="{DynamicResource ScrollBarStyle1}"
+                       ViewportSize="{TemplateBinding ViewportHeight}" Style="{DynamicResource ScrollBarStyle}"
                        Width="5" Background="Transparent" BorderBrush="Transparent" />
             <ScrollBar x:Name="PART_HorizontalScrollBar" AutomationProperties.AutomationId="HorizontalScrollBar"
                        Cursor="Arrow" Grid.Column="0" Maximum="{TemplateBinding ScrollableWidth}" Minimum="0"
                        Orientation="Horizontal" Grid.Row="1"
                        Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
                        Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
-                       ViewportSize="{TemplateBinding ViewportWidth}" Style="{DynamicResource ScrollBarStyle2}"
+                       ViewportSize="{TemplateBinding ViewportWidth}" Style="{DynamicResource ScrollBarStyle}"
                        Background="{x:Null}" BorderBrush="{x:Null}" Height="5" />
         </Grid>
     </ControlTemplate>
@@ -576,7 +583,8 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Thumb}">
                     <Rectangle x:Name="rectangle" Height="{TemplateBinding Height}" SnapsToDevicePixels="True"
-                               Width="{TemplateBinding Width}" RadiusX="2.8" RadiusY="3" Fill="{StaticResource ScrollBar.Static.Thumb}" />
+                               Width="{TemplateBinding Width}" RadiusX="2.8" RadiusY="3"
+                               Fill="{StaticResource ScrollBar.Static.Thumb}" />
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="true">
                             <Setter Property="Fill" TargetName="rectangle"
@@ -598,7 +606,8 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Thumb}">
                     <Rectangle x:Name="rectangle" Height="{TemplateBinding Height}" SnapsToDevicePixels="True"
-                               Width="{TemplateBinding Width}" Fill="{StaticResource ScrollBar.Static.Thumb}" RadiusX="3" RadiusY="3" />
+                               Width="{TemplateBinding Width}" Fill="{StaticResource ScrollBar.Static.Thumb}"
+                               RadiusX="3" RadiusY="3" />
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="true">
                             <Setter Property="Fill" TargetName="rectangle"
@@ -732,7 +741,7 @@
                                 <Border BorderBrush="{TemplateBinding BorderBrush}"
                                         BorderThickness="{TemplateBinding BorderThickness}"
                                         Background="{TemplateBinding Background}" Grid.Column="1" />
-                                <RepeatButton  Grid.Column="0" x:Name="PART_LineLeftButton"
+                                <RepeatButton Grid.Column="0" x:Name="PART_LineLeftButton"
                                               Command="{x:Static ScrollBar.LineLeftCommand}"
                                               IsEnabled="{TemplateBinding IsMouseOver}"
                                               Style="{StaticResource ScrollBarButton}">
@@ -1023,32 +1032,35 @@
     <!--END Scroll View-->
 
     <!-- Start WaitControl-->
-    
+
     <Style TargetType="{x:Type wpf:WaitControl}">
 
-        
+
         <Setter Property="Background" Value="#9B000000"></Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type wpf:WaitControl}">
-                    <Border   Padding="{TemplateBinding Padding}" Margin="{TemplateBinding Margin}">
-                        <Grid x:Name="RootGrid" >
-                            <ContentControl Content="{TemplateBinding Content}" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch"></ContentControl>
-                            <Grid x:Name="waitGrid" Visibility="{TemplateBinding Show, Converter={StaticResource BoolToVisibilityConverter}}"  Background="{TemplateBinding Background}"
-                          SnapsToDevicePixels="True">
+                    <Border Padding="{TemplateBinding Padding}" Margin="{TemplateBinding Margin}">
+                        <Grid x:Name="RootGrid">
+                            <ContentControl Content="{TemplateBinding Content}" VerticalAlignment="Stretch"
+                                            HorizontalAlignment="Stretch">
+                            </ContentControl>
+                            <Grid x:Name="waitGrid"
+                                  Visibility="{TemplateBinding Show, Converter={StaticResource BoolToVisibilityConverter}}"
+                                  Background="{TemplateBinding Background}"
+                                  SnapsToDevicePixels="True">
                                 <ContentControl Content="{TemplateBinding ShowContent}"></ContentControl>
-                                </Grid>
+                            </Grid>
                         </Grid>
                     </Border>
-                    
+
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
 
-        
+
     </Style>
     <!--End WaitControl-->
-
 
 
 </ResourceDictionary>
