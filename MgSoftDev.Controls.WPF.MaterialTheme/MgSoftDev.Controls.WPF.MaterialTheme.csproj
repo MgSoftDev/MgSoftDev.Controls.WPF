@@ -1,23 +1,21 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net5.0-windows;net48</TargetFrameworks>
+    <TargetFrameworks>net6.0-windows;net5.0-windows;net48</TargetFrameworks>
     <UseWPF>true</UseWPF>
-    <LangVersion>9.0</LangVersion>
+    <LangVersion>10.0</LangVersion>
     <Authors>Miguel Fernando Garcias Salazar</Authors>
     <Company>MgSoftDev</Company>
     <Copyright>MgSoftDev</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/MgSoftDev/MgSoftDev.Controls.WPF</PackageProjectUrl>
     <RepositoryUrl>https://github.com/MgSoftDev/MgSoftDev.Controls.WPF</RepositoryUrl>
+    <Version>1.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MgSoftDev.Controls.WPF" Version="1.2.0" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\MgSoftDev.Controls.WPF\MgSoftDev.Controls.WPF.csproj" />
   </ItemGroup>
 
   <ItemGroup>

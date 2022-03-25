@@ -27,6 +27,7 @@ namespace MgSoftDev.Controls.WPF
             {
                 Cursor = Cursors.Arrow;
                 ReleaseMouseCapture();
+                if (Content is UIElement c) c.IsEnabled = true;
             }
 
             base.OnMouseLeave(e);
@@ -67,6 +68,8 @@ namespace MgSoftDev.Controls.WPF
                     ScrollToHorizontalOffset(_ScrollStartOffset.X + delta.X);
                     ScrollToVerticalOffset(_ScrollStartOffset.Y   + delta.Y);
                     this.CaptureMouse();
+                    if (Content is UIElement c) c.IsEnabled = false;
+
                 }
 
             base.OnPreviewMouseMove(e);
@@ -79,6 +82,7 @@ namespace MgSoftDev.Controls.WPF
             {
                 Cursor = Cursors.Arrow;
                 ReleaseMouseCapture();
+                if (Content is UIElement c) c.IsEnabled = true;
             }
 
             base.OnPreviewMouseUp(e);

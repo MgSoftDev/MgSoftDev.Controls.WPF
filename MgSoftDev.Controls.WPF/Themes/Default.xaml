@@ -13,6 +13,22 @@
             Source="pack://application:,,,/MgSoftDev.Controls.WPF;component/Themes/MgTabControlTheme.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
+      <ItemsPanelTemplate x:Key="ItemsControlPanelStackHorizontal">
+        <StackPanel Orientation="Horizontal"/>
+    </ItemsPanelTemplate>
+    <ItemsPanelTemplate x:Key="ItemsControlPanelStackVertical">
+        <StackPanel Orientation="Vertical"/>
+    </ItemsPanelTemplate>
+    <ItemsPanelTemplate x:Key="ItemsControlPanelWrapPanelHorizontal">
+        <WrapPanel Orientation="Horizontal" IsItemsHost="True" ></WrapPanel>
+    </ItemsPanelTemplate>
+
+    <ItemsPanelTemplate x:Key="ItemsControlPanelWrapPanelVertical">
+        <WrapPanel Orientation="Vertical" IsItemsHost="True" ></WrapPanel>
+    </ItemsPanelTemplate>
+
+    
+    
     <converters:ToTypeConverter x:Key="ToTypeConverter" />
     <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
 
