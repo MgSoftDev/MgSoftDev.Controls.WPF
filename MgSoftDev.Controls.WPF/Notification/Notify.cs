@@ -145,8 +145,28 @@ namespace MgSoftDev.Controls.WPF.Notification
                     if (_Window.WindowState != WindowState.Maximized)
                         _Window.WindowState = WindowState.Maximized;
                 };
+                
+               
 
-                if( Application.Current.MainWindow != null ) Application.Current.MainWindow.Closed += (_, _)=>_Window.Close();
+                if( Application.Current.MainWindow != null )
+                {
+                    Application.Current.MainWindow.StateChanged += (s, e) =>
+                    {
+                        if (Application.Current.MainWindow.WindowState == WindowState.Minimized)
+                        {
+                            _Window.Owner = null;
+                            _Window.Show();
+                        }
+                        else 
+                        {
+                            _Window.Hide();
+                            _Window.Owner = Application.Current.MainWindow;
+                            _Window.Show();
+                        }
+                    };
+                    Application.Current.MainWindow.Closed += (_, _)=>_Window.Close();
+                }
+                _Window.Owner = Application.Current.MainWindow;
                 _Window.Show();
             });
         }

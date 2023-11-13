@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
@@ -15,10 +14,7 @@ namespace MgSoftDev.Controls.WPF.MessageBox
             Question,
             Information,
             Successful,
-            Hand,
-            Stop,
-            Exclamation,
-            Asterisk,
+            
         }
 
 
@@ -63,7 +59,7 @@ namespace MgSoftDev.Controls.WPF.MessageBox
         public static MessageBoxResult ShowQuestion(string header, string content, Action<MessageBoxDialogConfig> config = null)
         {
             var msj = new MessageBoxDialogConfig();
-            msj.Header(header).Content(content).Buttons(MessageBoxButton.YesNoCancel).Icon(MessageBoxIcon.Question);
+            msj.Header(header).Content(content).Buttons(MessageBoxButton.YesNo).Icon(MessageBoxIcon.Question);
             config?.Invoke(msj);
 
             return Application.Current.Dispatcher.Invoke(()=>ShowInternal(msj._Item));
@@ -87,41 +83,13 @@ namespace MgSoftDev.Controls.WPF.MessageBox
             return Application.Current.Dispatcher.Invoke(()=>ShowInternal(msj._Item));
         }
 
-        public static MessageBoxResult ShowHand(string header, string content, Action<MessageBoxDialogConfig> config = null)
-        {
-            var msj = new MessageBoxDialogConfig();
-            msj.Header(header).Content(content).Buttons(MessageBoxButton.OK).Icon(MessageBoxIcon.Hand);
-            config?.Invoke(msj);
+        
 
-            return Application.Current.Dispatcher.Invoke(()=>ShowInternal(msj._Item));
-        }
+        
 
-        public static MessageBoxResult ShowStop(string header, string content, Action<MessageBoxDialogConfig> config = null)
-        {
-            var msj = new MessageBoxDialogConfig();
-            msj.Header(header).Content(content).Buttons(MessageBoxButton.OK).Icon(MessageBoxIcon.Stop);
-            config?.Invoke(msj);
+        
 
-            return Application.Current.Dispatcher.Invoke(()=>ShowInternal(msj._Item));
-        }
-
-        public static MessageBoxResult ShowExclamation(string header, string content, Action<MessageBoxDialogConfig> config = null)
-        {
-            var msj = new MessageBoxDialogConfig();
-            msj.Header(header).Content(content).Buttons(MessageBoxButton.OK).Icon(MessageBoxIcon.Exclamation);
-            config?.Invoke(msj);
-
-            return Application.Current.Dispatcher.Invoke(()=>ShowInternal(msj._Item));
-        }
-
-        public static MessageBoxResult ShowAsterisk(string header, string content, Action<MessageBoxDialogConfig> config = null)
-        {
-            var msj = new MessageBoxDialogConfig();
-            msj.Header(header).Content(content).Buttons(MessageBoxButton.OK).Icon(MessageBoxIcon.Asterisk);
-            config?.Invoke(msj);
-
-            return Application.Current.Dispatcher.Invoke(()=>ShowInternal(msj._Item));
-        }
+       
 
         public static MessageBoxResult Show(string header, string content, Action<MessageBoxDialogConfig> config = null)
         {
@@ -145,13 +113,13 @@ namespace MgSoftDev.Controls.WPF.MessageBox
                               Focusable             = false,
                               ResizeMode            = ResizeMode.NoResize,
                               Topmost               = true,
-                              WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                              WindowStartupLocation = WindowStartupLocation.CenterOwner,
                               WindowState           = WindowState.Normal,
                               WindowStyle           = WindowStyle.None,
                               ShowInTaskbar         = false,
                           };
 
-
+           
             win.Loaded += (_, _)=>
             {
                 win.Top = 1;
@@ -193,7 +161,7 @@ namespace MgSoftDev.Controls.WPF.MessageBox
                               };
 
             win.ShowDialog();
-
+           
             return result;
         }
     }

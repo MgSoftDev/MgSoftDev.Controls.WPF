@@ -6,6 +6,7 @@
         <ResourceDictionary.MergedDictionaries>
     <ResourceDictionary Source="pack://application:,,,/MgSoftDev.Controls.WPF.MaterialTheme;component/MessageBoxDialogControl.xaml" />
     <ResourceDictionary Source="pack://application:,,,/MgSoftDev.Controls.WPF.MaterialTheme;component/MgTabControlTheme.xaml" />
+    <ResourceDictionary Source="pack://application:,,,/MgSoftDev.Controls.WPF.MaterialTheme;component/WaitControl.xaml" />
 </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

@@ -26,15 +26,18 @@ namespace MgSoftDev.Controls.Wpf.Example
     {
         public MainWindow() { InitializeComponent(); }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e) { Notify.ShowInformation("Mensaje de informacion", "Como frutas y verduras"); }
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            Notify.ShowInformation("Mensaje de informacion", "Como frutas y verduras");
+        }
 
-        private void ButtonBase_OnClick1(object sender, RoutedEventArgs e) { MessageBoxDialog.ShowAsterisk("My Header", "My content"); }
+        private void ButtonBase_OnClick1(object sender, RoutedEventArgs e) { MessageBoxDialog.ShowInformation("My Header", "My content"); }
 
         private void ButtonBase_OnClick2(object sender, RoutedEventArgs e) { MessageBoxDialog.ShowError("My Header", "My content", _=>_.Width(1000).OkLabel("My OK")); }
 
-        private void ButtonBase_OnClick3(object sender, RoutedEventArgs e) { MessageBoxDialog.ShowExclamation("My Header", "My content"); }
+        private void ButtonBase_OnClick3(object sender, RoutedEventArgs e) { MessageBoxDialog.ShowInformation("My Header", "My content"); }
 
-        private void ButtonBase_OnClick4(object sender, RoutedEventArgs e) { MessageBoxDialog.ShowHand("My Header", "My content"); }
+        private void ButtonBase_OnClick4(object sender, RoutedEventArgs e) { MessageBoxDialog.ShowInformation("My Header", "My content"); }
 
         private void ButtonBase_OnClick5(object sender, RoutedEventArgs e) { MessageBoxDialog.ShowInformation("My Header", "My content"); }
 
@@ -42,7 +45,7 @@ namespace MgSoftDev.Controls.Wpf.Example
 
         private void ButtonBase_OnClick7(object sender, RoutedEventArgs e) { MessageBoxDialog.ShowQuestion("My Header", "My content"); }
 
-        private void ButtonBase_OnClick8(object sender, RoutedEventArgs e) { MessageBoxDialog.ShowStop("My Header", "My content"); }
+        private void ButtonBase_OnClick8(object sender, RoutedEventArgs e) { MessageBoxDialog.ShowError("My Header", "My content"); }
 
         private void ButtonBase_OnClick9(object sender, RoutedEventArgs e) { MessageBoxDialog.ShowSuccessful("My Header", "My content"); }
 
@@ -94,5 +97,13 @@ namespace MgSoftDev.Controls.Wpf.Example
         private void ButtonBase_OnClick11(object sender, RoutedEventArgs e) { wait.Show = true; }
 
         private void ButtonBase_OnClick12(object sender, RoutedEventArgs e) { wait.Show = false; }
+
+        void UIElement_OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Notify.ShowInformation("Mensaje de informacion", "Como frutas y verduras");
+            }
+        }
     }
 }

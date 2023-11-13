@@ -7,17 +7,17 @@
         xmlns:b="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
         xmlns:core="clr-namespace:Microsoft.Xaml.Behaviors.Core;assembly=Microsoft.Xaml.Behaviors"
         xmlns:notification="clr-namespace:MgSoftDev.Controls.WPF.Notification"
-
+Focusable="False"  IsHitTestVisible="True"
         Title="" Height="450" ShowInTaskbar="False" Width="800" ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen"
+        WindowStartupLocation="CenterOwner"
         WindowState="Maximized" Topmost="True" Background="{x:Null}" AllowsTransparency="True" WindowStyle="None"
         x:ClassModifier="internal">
-    <Grid>
-        <StackPanel x:Name="TopLeft" HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <StackPanel x:Name="TopRight" HorizontalAlignment="Right" VerticalAlignment="Top" />
-        <StackPanel x:Name="TopCenter" HorizontalAlignment="Center" VerticalAlignment="Top" />
-        <StackPanel x:Name="BottomLeft" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
-        <StackPanel x:Name="BottomRight" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
-        <StackPanel x:Name="BottomCenter" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+    <Grid Focusable="False" IsHitTestVisible="True">
+        <StackPanel x:Name="TopLeft" HorizontalAlignment="Left" VerticalAlignment="Top" Focusable="False" IsHitTestVisible="True"/>
+        <StackPanel x:Name="TopRight" HorizontalAlignment="Right" VerticalAlignment="Top" Focusable="False" IsHitTestVisible="True"/>
+        <StackPanel x:Name="TopCenter" HorizontalAlignment="Center" VerticalAlignment="Top" Focusable="False" IsHitTestVisible="True" />
+        <StackPanel x:Name="BottomLeft" HorizontalAlignment="Left" VerticalAlignment="Bottom" Focusable="False" IsHitTestVisible="True"/>
+        <StackPanel x:Name="BottomRight" HorizontalAlignment="Right" VerticalAlignment="Bottom" Focusable="False" IsHitTestVisible="True"/>
+        <StackPanel x:Name="BottomCenter" HorizontalAlignment="Center" VerticalAlignment="Bottom" Focusable="False" IsHitTestVisible="True"/>
     </Grid>
 </Window>

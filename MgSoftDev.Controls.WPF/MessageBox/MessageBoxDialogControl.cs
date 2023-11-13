@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Shapes;
 
 namespace MgSoftDev.Controls.WPF.MessageBox
@@ -115,7 +116,21 @@ namespace MgSoftDev.Controls.WPF.MessageBox
             set { SetValue(NotLabelProperty, value); }
         }
 
+        public static readonly DependencyProperty IconBackgroundProperty = DependencyProperty.Register(nameof( IconBackground ), typeof( Brush ), typeof( MessageBoxDialogControl ), new PropertyMetadata(default( Brush )));
 
+        public Brush IconBackground
+        {
+            get { return ( Brush ) GetValue(IconBackgroundProperty); }
+            set { SetValue(IconBackgroundProperty, value); }
+        }
+
+        public static readonly DependencyProperty IconForegroundProperty = DependencyProperty.Register(nameof( IconForeground ), typeof( Brush ), typeof( MessageBoxDialogControl ), new PropertyMetadata(default( Brush )));
+
+        public Brush IconForeground
+        {
+            get { return ( Brush ) GetValue(IconForegroundProperty); }
+            set { SetValue(IconForegroundProperty, value); }
+        }
 
 
 
