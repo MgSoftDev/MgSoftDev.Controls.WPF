@@ -28,7 +28,7 @@ namespace MgSoftDev.Controls.Wpf.Example
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            Notify.ShowInformation("Mensaje de informacion", "Como frutas y verduras");
+            Notify.ShowInformation("Mensaje de informacion");
         }
 
         private void ButtonBase_OnClick1(object sender, RoutedEventArgs e) { MessageBoxDialog.ShowInformation("My Header", "My content"); }
@@ -57,6 +57,7 @@ namespace MgSoftDev.Controls.Wpf.Example
             });
         }
 
+        NotificationControl infoNotify;
         private void ButtonBase1_OnClick(object sender, RoutedEventArgs e)
         {
             var btn = new Button()
@@ -64,12 +65,16 @@ namespace MgSoftDev.Controls.Wpf.Example
                 Content = "Goto Meesage"
             };
             btn.Click += Btn_Click;
-            Notify.ShowSuccess("Mensaje de OK adasd asdada adasdasd", "Como frutas y verduras asmdasd adasd asdasda adasd asdasda  asd", _=>
-                                   _.EndLifeAction(()=>MessageBoxDialog.ShowError("asas", "asas")).ActionControl(btn)
+            infoNotify = Notify.ShowSuccess("Mensaje de OK adasd asdada adasdasd", "Como frutas y verduras asmdasd adasd asdasda adasd asdasda  asd", _=>
+                                              _.EndLifeAction(()=>MessageBoxDialog.ShowError("Close Message", "El mensaje se cerro")).ActionControl(btn)
                 );
         }
 
-        private void Btn_Click(object sender, RoutedEventArgs e) { MessageBoxDialog.ShowWarning("ASAS", "AS"); }
+        private void Btn_Click(object sender, RoutedEventArgs e)
+        {
+            infoNotify?.Close();
+            MessageBoxDialog.ShowWarning("Click to button", "AS");
+        }
 
         private void ButtonBase2_OnClick(object sender, RoutedEventArgs e)
         {

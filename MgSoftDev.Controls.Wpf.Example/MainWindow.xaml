@@ -9,10 +9,11 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:windows="clr-namespace:System.Windows;assembly=PresentationFramework"
         mc:Ignorable="d"
+        
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
         TextElement.FontWeight="Medium"
-        TextElement.FontSize="14" WindowState="Maximized" Topmost="True"
+        TextElement.FontSize="14" WindowState="Maximized" Topmost="True" WindowStyle="None"
         FontFamily="{materialDesign:MaterialDesignFont}"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>

@@ -76,59 +76,66 @@ namespace MgSoftDev.Controls.WPF.Notification
         public static NotificationGlobalConfig WarningGlobalConfig     { get; private set; }
         public static NotificationGlobalConfig ErrorGlobalConfig       { get; private set; }
 
-        public static void ShowInformation(string title, string message, Action<NotificationConfig> config = null)
+        public static NotificationControl ShowInformation(string title, string message =null, Action<NotificationConfig> config = null)
         {
             var notify = new NotificationConfig(NotificationType.Information);
             notify.Title(title).Message(message);
             config?.Invoke(notify);
 
-            Application.Current.Dispatcher.Invoke(() => ShowInternal(notify._Item));
+          return  Application.Current.Dispatcher.Invoke(() => ShowInternal(notify._Item));
         }
 
-        public static void ShowSuccess(string title, string message, Action<NotificationConfig> config = null)
+        public static NotificationControl ShowSuccess(string title, string message =null, Action<NotificationConfig> config = null)
         {
             var notify = new NotificationConfig(NotificationType.Success);
             notify.Title(title).Message(message);
             config?.Invoke(notify);
 
-            Application.Current.Dispatcher.Invoke(()=>ShowInternal(notify._Item));
+            return    Application.Current.Dispatcher.Invoke(()=>ShowInternal(notify._Item));
         }
 
-        public static void ShowWarning(string title, string message, Action<NotificationConfig> config = null)
+        public static NotificationControl ShowWarning(string title, string message =null, Action<NotificationConfig> config = null)
         {
             var notify = new NotificationConfig(NotificationType.Warning);
             notify.Title(title).Message(message);
             config?.Invoke(notify);
 
-            Application.Current.Dispatcher.Invoke(()=>ShowInternal(notify._Item));
+           return Application.Current.Dispatcher.Invoke(()=>ShowInternal(notify._Item));
         }
-        public static void ShowError(string title, string message, Action<NotificationConfig> config = null)
+        public static NotificationControl ShowError(string title, string message =null, Action<NotificationConfig> config = null)
         {
             var notify = new NotificationConfig(NotificationType.Error);
             notify.Title(title).Message(message);
             config?.Invoke(notify);
 
-            Application.Current.Dispatcher.Invoke(()=>ShowInternal(notify._Item));
+          return  Application.Current.Dispatcher.Invoke(()=>ShowInternal(notify._Item));
         }
 
 
-        public static void ShowCustom(string title, string message, Action<NotificationConfig> config = null)
+        public static NotificationControl ShowCustom(string title, string message =null, Action<NotificationConfig> config = null)
         {
             var notify = new NotificationConfig(NotificationType.Custom);
             notify.Title(title).Message(message);
             config?.Invoke(notify);
 
-            Application.Current.Dispatcher.Invoke(() => ShowInternal(notify._Item));
+          return  Application.Current.Dispatcher.Invoke(() => ShowInternal(notify._Item));
         }
-        public static void Show(string title, string message, NotificationType notificationType, Action<NotificationConfig> config = null)
+        public static NotificationControl Show(string title, string message, NotificationType notificationType, Action<NotificationConfig> config = null)
         {
             var notify = new NotificationConfig(notificationType);
             notify.Title(title).Message(message);
             config?.Invoke(notify);
 
-            Application.Current.Dispatcher.Invoke(() => ShowInternal(notify._Item));
+           return Application.Current.Dispatcher.Invoke(() => ShowInternal(notify._Item));
         }
+        public static NotificationControl Show(string title, NotificationType notificationType, Action<NotificationConfig> config = null)
+        {
+            var notify = new NotificationConfig(notificationType);
+            notify.Title(title);
+            config?.Invoke(notify);
 
+          return  Application.Current.Dispatcher.Invoke(() => ShowInternal(notify._Item));
+        }
         private static void CrearIfNotExist()
         {
             Application.Current.Dispatcher.Invoke(() =>
@@ -171,7 +178,7 @@ namespace MgSoftDev.Controls.WPF.Notification
             });
         }
 
-        private static void Add(NotificationItem notification)
+        private static NotificationControl Add(NotificationItem notification)
         {
             // _Window.Activate();
 
@@ -231,24 +238,22 @@ namespace MgSoftDev.Controls.WPF.Notification
                     case NotificationPosition.BottomCenter: _Window.BottomCenter?.Children.Remove(obj); break;
                     
                 }
-
                 GC.Collect();
             };
 
             item.TimeLife();
+
+            return item;
         }
 
 
-        private static void ShowInternal(NotificationItem item)
+        private static NotificationControl ShowInternal(NotificationItem item)
         {
-            if (item == null) return;
+            if (item == null) return null;
 
             CrearIfNotExist();
 
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                Add(item);
-            });
+           return  Application.Current.Dispatcher.Invoke(() =>Add(item));
         }
     }
 }
