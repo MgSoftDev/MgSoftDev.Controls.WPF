@@ -31,7 +31,7 @@ namespace MgSoftDev.Controls.Wpf.Example
             Notify.ShowInformation("Mensaje de informacion");
         }
 
-        private void ButtonBase_OnClick1(object sender, RoutedEventArgs e) { MessageBoxDialog.ShowInformation("My Header", "My content"); }
+        private void ButtonBase_OnClick1(object sender, RoutedEventArgs e) { MessageBoxDialog.ShowInformation("My Header!!!"); }
 
         private void ButtonBase_OnClick2(object sender, RoutedEventArgs e) { MessageBoxDialog.ShowError("My Header", "My content", _=>_.Width(1000).OkLabel("My OK")); }
 

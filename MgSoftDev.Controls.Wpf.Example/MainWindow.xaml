@@ -10,11 +10,11 @@
         xmlns:windows="clr-namespace:System.Windows;assembly=PresentationFramework"
         mc:Ignorable="d"
         
-        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"
+        Background="{DynamicResource MaterialDesign.Brush.Background}"
         TextElement.FontWeight="Medium"
-        TextElement.FontSize="14" WindowState="Maximized" Topmost="True" WindowStyle="None"
-        FontFamily="{materialDesign:MaterialDesignFont}"
+        TextElement.FontSize="14" WindowState="Maximized" Topmost="True"
+       
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
 

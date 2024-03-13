@@ -9,48 +9,48 @@
     <Style TargetType="{x:Type controls:MessageBoxDialogControl}">
   <Style.Triggers>
             <DataTrigger Binding="{Binding Icon, RelativeSource={ RelativeSource Self}}" Value="Error">
-                <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}"></Setter>
-                <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}"></Setter>
+                <Setter Property="Background" Value="{DynamicResource MaterialDesign.Brush.Primary.Dark}"></Setter>
+                <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Primary.Dark.Foreground}"></Setter>
                 <Setter Property="IconBackground" Value="DarkRed"></Setter>
                 <Setter Property="IconForeground" Value="White"></Setter>
             </DataTrigger>
             <DataTrigger Binding="{Binding Icon, RelativeSource={ RelativeSource Self}}" Value="Warning">
-                <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}"></Setter>
-                <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}"></Setter>
+                <Setter Property="Background" Value="{DynamicResource MaterialDesign.Brush.Primary.Dark}"></Setter>
+                <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Primary.Dark.Foreground}"></Setter>
                 <Setter Property="IconBackground" Value="Gold"></Setter>
                 <Setter Property="IconForeground" Value="Black"></Setter>
             </DataTrigger>
             <DataTrigger Binding="{Binding Icon, RelativeSource={ RelativeSource Self}}" Value="Question">
-                <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}"></Setter>
-                <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}"></Setter>
-                <Setter Property="IconBackground" Value="{DynamicResource PrimaryHueDarkBrush}"></Setter>
+                <Setter Property="Background" Value="{DynamicResource MaterialDesign.Brush.Primary.Dark}"></Setter>
+                <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Primary.Dark.Foreground}"></Setter>
+                <Setter Property="IconBackground" Value="{DynamicResource MaterialDesign.Brush.Primary.Dark}"></Setter>
                 <Setter Property="IconForeground" Value="White"></Setter>
             </DataTrigger>
             <DataTrigger Binding="{Binding Icon, RelativeSource={ RelativeSource Self}}" Value="Information">
-                <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}"></Setter>
-                <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}"></Setter>
-                <Setter Property="IconBackground" Value="{DynamicResource PrimaryHueDarkBrush}"></Setter>
+                <Setter Property="Background" Value="{DynamicResource MaterialDesign.Brush.Primary.Dark}"></Setter>
+                <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Primary.Dark.Foreground}"></Setter>
+                <Setter Property="IconBackground" Value="{DynamicResource MaterialDesign.Brush.Primary.Dark}"></Setter>
                 <Setter Property="IconForeground" Value="White"></Setter>
             </DataTrigger>
             <DataTrigger Binding="{Binding Icon, RelativeSource={ RelativeSource Self}}" Value="Successful">
-                <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}"></Setter>
-                <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}"></Setter>
+                <Setter Property="Background" Value="{DynamicResource MaterialDesign.Brush.Primary.Dark}"></Setter>
+                <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Primary.Dark.Foreground}"></Setter>
                 <Setter Property="IconBackground" Value="Green"></Setter>
                 <Setter Property="IconForeground" Value="White"></Setter>
             </DataTrigger>
             <DataTrigger Binding="{Binding Icon, RelativeSource={ RelativeSource Self}}" Value="Custom">
-                <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}"></Setter>
-                <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}"></Setter>
-                <Setter Property="IconBackground" Value="{DynamicResource PrimaryHueDarkBrush}"></Setter>
+                <Setter Property="Background" Value="{DynamicResource MaterialDesign.Brush.Primary.Dark}"></Setter>
+                <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Primary.Dark.Foreground}"></Setter>
+                <Setter Property="IconBackground" Value="{DynamicResource MaterialDesign.Brush.Primary.Dark}"></Setter>
                 <Setter Property="IconForeground" Value="White"></Setter>
             </DataTrigger>
            
         </Style.Triggers>
-        <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}" />
-        <Setter Property="IconBackground" Value="{DynamicResource PrimaryHueDarkBrush}"></Setter>
-        <Setter Property="IconForeground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}"></Setter>
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueLightBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialDesign.Brush.Primary.Dark}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Primary.Dark.Foreground}" />
+        <Setter Property="IconBackground" Value="{DynamicResource MaterialDesign.Brush.Primary.Dark}"></Setter>
+        <Setter Property="IconForeground" Value="{DynamicResource MaterialDesign.Brush.Primary.Dark.Foreground}"></Setter>
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesign.Brush.Primary.Light}" />
         <Setter Property="BorderThickness" Value="2" />
         <Setter Property="Template">
             <Setter.Value>

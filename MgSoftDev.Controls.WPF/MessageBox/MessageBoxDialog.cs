@@ -28,7 +28,7 @@ namespace MgSoftDev.Controls.WPF.MessageBox
                                                                                             };
 
 
-        public static MessageBoxResult ShowNone(string header, string content, Path customIconPath = null, Action<MessageBoxDialogConfig> config = null)
+        public static MessageBoxResult ShowNone(string header, string content = null, Path customIconPath = null, Action<MessageBoxDialogConfig> config = null)
         {
             var msj = new MessageBoxDialogConfig();
             msj.Header(header).Content(content).CustomIcon(customIconPath).Buttons(MessageBoxButton.OK).Icon(MessageBoxIcon.Custom);
@@ -37,7 +37,7 @@ namespace MgSoftDev.Controls.WPF.MessageBox
             return Application.Current.Dispatcher.Invoke(()=>ShowInternal(msj._Item));
         }
 
-        public static MessageBoxResult ShowError(string header, string content, Action<MessageBoxDialogConfig> config = null)
+        public static MessageBoxResult ShowError(string header, string content = null, Action<MessageBoxDialogConfig> config = null)
         {
             var msj = new MessageBoxDialogConfig();
             msj.Header(header).Content(content).Buttons(MessageBoxButton.OK).Icon(MessageBoxIcon.Error);
@@ -47,7 +47,7 @@ namespace MgSoftDev.Controls.WPF.MessageBox
         }
 
 
-        public static MessageBoxResult ShowWarning(string header, string content, Action<MessageBoxDialogConfig> config = null)
+        public static MessageBoxResult ShowWarning(string header, string content = null, Action<MessageBoxDialogConfig> config = null)
         {
             var msj = new MessageBoxDialogConfig();
             msj.Header(header).Content(content).Buttons(MessageBoxButton.OK).Icon(MessageBoxIcon.Warning);
@@ -56,7 +56,7 @@ namespace MgSoftDev.Controls.WPF.MessageBox
             return Application.Current.Dispatcher.Invoke(()=>ShowInternal(msj._Item));
         }
 
-        public static MessageBoxResult ShowQuestion(string header, string content, Action<MessageBoxDialogConfig> config = null)
+        public static MessageBoxResult ShowQuestion(string header, string content = null, Action<MessageBoxDialogConfig> config = null)
         {
             var msj = new MessageBoxDialogConfig();
             msj.Header(header).Content(content).Buttons(MessageBoxButton.YesNo).Icon(MessageBoxIcon.Question);
@@ -65,7 +65,7 @@ namespace MgSoftDev.Controls.WPF.MessageBox
             return Application.Current.Dispatcher.Invoke(()=>ShowInternal(msj._Item));
         }
 
-        public static MessageBoxResult ShowInformation(string header, string content, Action<MessageBoxDialogConfig> config = null)
+        public static MessageBoxResult ShowInformation(string header, string content = null, Action<MessageBoxDialogConfig> config = null)
         {
             var msj = new MessageBoxDialogConfig();
             msj.Header(header).Content(content).Buttons(MessageBoxButton.OK).Icon(MessageBoxIcon.Information);
@@ -74,7 +74,7 @@ namespace MgSoftDev.Controls.WPF.MessageBox
             return Application.Current.Dispatcher.Invoke(()=>ShowInternal(msj._Item));
         }
 
-        public static MessageBoxResult ShowSuccessful(string header, string content, Action<MessageBoxDialogConfig> config = null)
+        public static MessageBoxResult ShowSuccessful(string header, string content = null, Action<MessageBoxDialogConfig> config = null)
         {
             var msj = new MessageBoxDialogConfig();
             msj.Header(header).Content(content).Buttons(MessageBoxButton.OK).Icon(MessageBoxIcon.Successful);
@@ -91,7 +91,7 @@ namespace MgSoftDev.Controls.WPF.MessageBox
 
        
 
-        public static MessageBoxResult Show(string header, string content, Action<MessageBoxDialogConfig> config = null)
+        public static MessageBoxResult Show(string header, string content = null, Action<MessageBoxDialogConfig> config = null)
         {
             var msj = new MessageBoxDialogConfig();
             msj.Header(header).Content(content).Buttons(MessageBoxButton.OK).Icon(MessageBoxIcon.Custom);

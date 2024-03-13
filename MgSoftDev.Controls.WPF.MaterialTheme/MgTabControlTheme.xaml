@@ -7,11 +7,11 @@
 <!--MgTabControl-->
     <SolidColorBrush x:Key="TabItem.Selected.Background" Color="Transparent" />
     <SolidColorBrush x:Key="TabItem.Selected.Border" Color="#ACACAC" />
-    <SolidColorBrush x:Key="MgTabControl.Background" Color="{Binding Source={StaticResource  MaterialDesignPaper}, Converter={StaticResource BrushToColorConverter}}" ></SolidColorBrush>
-    <SolidColorBrush x:Key="MgTabControl.BorderBrush" Color="{Binding Source={StaticResource  MaterialDesignCardBackground}, Converter={StaticResource BrushToColorConverter}}" ></SolidColorBrush>
-    <SolidColorBrush x:Key="MgTabControl.TabBackground" Color="{Binding Source={StaticResource  PrimaryHueMidBrush}, Converter={StaticResource BrushToColorConverter}}" ></SolidColorBrush>
-    <SolidColorBrush x:Key="MgTabControl.SelectBorderBrush" Color="{Binding Source={StaticResource  SecondaryHueMidBrush}, Converter={StaticResource BrushToColorConverter}}" ></SolidColorBrush>
-    <SolidColorBrush x:Key="MgTabControl.Foreground" Color="{Binding Source={StaticResource  PrimaryHueMidForegroundBrush}, Converter={StaticResource BrushToColorConverter}}" ></SolidColorBrush>
+    <SolidColorBrush x:Key="MgTabControl.Background" Color="{Binding Source={StaticResource MaterialDesign.Brush.Background}, Converter={StaticResource BrushToColorConverter}}" ></SolidColorBrush>
+    <SolidColorBrush x:Key="MgTabControl.BorderBrush" Color="{Binding Source={StaticResource MaterialDesign.Brush.Card.Background}, Converter={StaticResource BrushToColorConverter}}" ></SolidColorBrush>
+    <SolidColorBrush x:Key="MgTabControl.TabBackground" Color="{Binding Source={StaticResource MaterialDesign.Brush.Primary}, Converter={StaticResource BrushToColorConverter}}" ></SolidColorBrush>
+    <SolidColorBrush x:Key="MgTabControl.SelectBorderBrush" Color="{Binding Source={StaticResource MaterialDesign.Brush.Secondary}, Converter={StaticResource BrushToColorConverter}}" ></SolidColorBrush>
+    <SolidColorBrush x:Key="MgTabControl.Foreground" Color="{Binding Source={StaticResource MaterialDesign.Brush.Primary.Foreground}, Converter={StaticResource BrushToColorConverter}}" ></SolidColorBrush>
 
 
     <Style TargetType="{x:Type controls:MgTabControl}">
