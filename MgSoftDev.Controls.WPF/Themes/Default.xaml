@@ -502,7 +502,7 @@
                                     CanContentScroll="{TemplateBinding CanContentScroll}" CanHorizontallyScroll="False"
                                     CanVerticallyScroll="False" ContentTemplate="{TemplateBinding ContentTemplate}"
                                     Content="{TemplateBinding Content}" Grid.Column="0"
-                                    Margin="{TemplateBinding Padding}" Grid.Row="0" />
+                                     Grid.Row="0" />
             <ScrollBar x:Name="PART_VerticalScrollBar" AutomationProperties.AutomationId="VerticalScrollBar"
                        Cursor="Arrow" Grid.Column="1" Maximum="{TemplateBinding ScrollableHeight}" Minimum="0"
                        Grid.Row="0" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
