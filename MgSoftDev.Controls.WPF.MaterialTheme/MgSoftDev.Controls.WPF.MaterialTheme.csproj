@@ -11,17 +11,17 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/MgSoftDev/MgSoftDev.Controls.WPF</PackageProjectUrl>
     <RepositoryUrl>https://github.com/MgSoftDev/MgSoftDev.Controls.WPF</RepositoryUrl>
-    <Version>2.0.1</Version>
+    <Version>2.0.2</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>2.0.1</AssemblyVersion>
-    <FileVersion>2.0.1</FileVersion>
+    <AssemblyVersion>2.0.2</AssemblyVersion>
+    <FileVersion>2.0.2</FileVersion>
     
     <PackageReleaseNotes>This version only is compatible with Version 5 &gt; Material Design</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MaterialDesignThemes" Version="5.1.0" />
-    <PackageReference Include="MgSoftDev.Controls.WPF" Version="1.7.1" />
+    <PackageReference Include="MaterialDesignThemes" Version="5.2.1" />
+    <PackageReference Include="MgSoftDev.Controls.WPF" Version="1.7.2" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
   </ItemGroup>
 
