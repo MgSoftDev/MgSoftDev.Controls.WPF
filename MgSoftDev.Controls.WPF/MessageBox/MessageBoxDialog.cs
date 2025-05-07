@@ -159,7 +159,7 @@ namespace MgSoftDev.Controls.WPF.MessageBox
                                       win.Close();
                                   }
                               };
-
+            win.Owner = Application.Current.MainWindow;
             win.ShowDialog();
            
             return result;
