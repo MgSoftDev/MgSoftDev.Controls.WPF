@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net7.0-windows;net4.8</TargetFrameworks>
+    <TargetFrameworks>net8.0-windows;net4.8</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <ImplicitUsings>enable</ImplicitUsings>
     <LangVersion>11</LangVersion>
@@ -11,18 +11,18 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/MgSoftDev/MgSoftDev.Controls.WPF</PackageProjectUrl>
     <RepositoryUrl>https://github.com/MgSoftDev/MgSoftDev.Controls.WPF</RepositoryUrl>
-    <Version>2.0.2</Version>
+    <Version>2.0.3</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>2.0.2</AssemblyVersion>
-    <FileVersion>2.0.2</FileVersion>
+    <AssemblyVersion>2.0.3</AssemblyVersion>
+    <FileVersion>2.0.3</FileVersion>
     
     <PackageReleaseNotes>This version only is compatible with Version 5 &gt; Material Design</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MaterialDesignThemes" Version="5.2.1" />
-    <PackageReference Include="MgSoftDev.Controls.WPF" Version="1.7.2" />
+    <PackageReference Include="MgSoftDev.Controls.WPF" Version="1.7.3" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
+    <PackageReference Include="MaterialDesignThemes" Version="5.3.0" />
   </ItemGroup>
 
   <ItemGroup>

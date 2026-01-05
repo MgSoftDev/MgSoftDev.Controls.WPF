@@ -9,7 +9,7 @@ namespace MgSoftDev.Controls.WPF
 
         public WaitControl()
         {
-            ShowContent = new WaitProgressAnimationControl();
+           
         }
 
 

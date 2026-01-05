@@ -1038,34 +1038,49 @@
     <!--END Scroll View-->
 
     <!-- Start WaitControl-->
+<Style TargetType="{x:Type wpf:WaitControl}">
+            <Setter Property="Background" Value="#C8000000" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type wpf:WaitControl}">
+                        <Border Padding="{TemplateBinding Padding}" Margin="{TemplateBinding Margin}">
+                            <Grid x:Name="RootGrid">
+                                <ContentPresenter Content="{TemplateBinding Content}" VerticalAlignment="Stretch"
+                                                HorizontalAlignment="Stretch" />
+                                <Grid x:Name="waitGrid"
+                                      Visibility="{TemplateBinding Show, Converter={StaticResource BoolToVisibilityConverter}}"
+                                      Background="{TemplateBinding Background}"
+                                      SnapsToDevicePixels="True">
+                                    
+                                    <!-- Contenedor para el contenido personalizado o por defecto -->
+                                    <ContentPresenter x:Name="CustomContentPresenter" 
+                                                      Content="{TemplateBinding ShowContent}" />
 
-    <Style TargetType="{x:Type wpf:WaitControl}">
-
-
-        <Setter Property="Background" Value="#9B000000"></Setter>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type wpf:WaitControl}">
-                    <Border Padding="{TemplateBinding Padding}" Margin="{TemplateBinding Margin}">
-                        <Grid x:Name="RootGrid">
-                            <ContentControl Content="{TemplateBinding Content}" VerticalAlignment="Stretch"
-                                            HorizontalAlignment="Stretch">
-                            </ContentControl>
-                            <Grid x:Name="waitGrid"
-                                  Visibility="{TemplateBinding Show, Converter={StaticResource BoolToVisibilityConverter}}"
-                                  Background="{TemplateBinding Background}"
-                                  SnapsToDevicePixels="True">
-                                <ContentControl Content="{TemplateBinding ShowContent}"></ContentControl>
+                                    <!-- Contenido por defecto (Anillo + Texto) -->
+                                    <StackPanel x:Name="DefaultContent" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Collapsed">
+                                        <wpf:WaitProgressAnimationControl />
+                                        <TextBlock x:Name="TextControl" Margin="0,20,0,0" FontSize="18"  TextAlignment="Center"
+                                                   Text="{Binding Text, RelativeSource={RelativeSource TemplatedParent}}" 
+                                                   Foreground="{DynamicResource MaterialDesign.Brush.Foreground}" />
+                                    </StackPanel>
+                                </Grid>
                             </Grid>
-                        </Grid>
-                    </Border>
-
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-
-
-    </Style>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <!-- Si ShowContent es nulo, mostramos el contenido por defecto -->
+                            <Trigger Property="ShowContent" Value="{x:Null}">
+                                <Setter TargetName="DefaultContent" Property="Visibility" Value="Visible" />
+                                <Setter TargetName="CustomContentPresenter" Property="Visibility" Value="Collapsed" />
+                            </Trigger>
+                            <Trigger Property="Text"  Value="{x:Null}">
+                                <Setter TargetName="TextControl" Property="Visibility" Value="Collapsed" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+</Style>
+    
     <!--End WaitControl-->
 
 
