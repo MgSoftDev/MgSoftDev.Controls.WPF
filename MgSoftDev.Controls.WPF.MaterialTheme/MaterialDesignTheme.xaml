@@ -1,14 +1,14 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
 
 
-        <ResourceDictionary.MergedDictionaries>
-            
-            
-            <ResourceDictionary Source="pack://application:,,,/MgSoftDev.Controls.WPF.MaterialTheme;component/MessageBoxDialogControl.xaml" />
-    <ResourceDictionary Source="pack://application:,,,/MgSoftDev.Controls.WPF.MaterialTheme;component/MgTabControlTheme.xaml" />
-    <ResourceDictionary Source="pack://application:,,,/MgSoftDev.Controls.WPF.MaterialTheme;component/WaitControl.xaml" />
-</ResourceDictionary.MergedDictionaries>
+    <ResourceDictionary.MergedDictionaries>
+
+
+        <ResourceDictionary
+            Source="pack://application:,,,/MgSoftDev.Controls.WPF.MaterialTheme;component/MessageBoxDialogControl.xaml" />
+        <ResourceDictionary
+            Source="pack://application:,,,/MgSoftDev.Controls.WPF.MaterialTheme;component/MgTabControlTheme.xaml" />
+    </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>
