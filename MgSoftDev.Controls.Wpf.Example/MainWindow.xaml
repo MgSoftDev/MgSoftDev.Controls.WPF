@@ -80,7 +80,7 @@
                     <!-- </wpf:WaitControl.ShowContent> -->
                     <Border  Background="Red"></Border>
                 </wpf:WaitControl>
-                <wpf:WaitControl Show="True" Background="Blue" Foreground="Yellow" Shapes="30" ShapesGap="5" Fill="Aqua" Width="100" Height="100" />
+                <wpf:WaitControl Show="True" Background="Blue" Foreground="Yellow" Shapes="30" ShapesGap="5" Fill="Aqua" WidthIndicator="50" HeightIndicator="50" Width="100" Height="100" />
                 <UniformGrid  Columns="5" Rows="1" Width="100" Height="50">
                     <Path Margin="5,0,0,0" MinWidth="10" MinHeight="10" MaxHeight="32" MaxWidth="32"  Fill="Black" Data="F1 M 4.40036,0.40004C 6.60968,0.40004 8.4007,2.19106 8.4007,4.40041C 8.4007,6.6097 6.60968,8.40071 4.40036,8.40071C 2.19104,8.40071 0.400024,6.6097 0.400024,4.40041C 0.400024,2.19106 2.19104,0.40004 4.40036,0.40004 Z " HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform"></Path>
                     <Path x:Name="path" Margin="5,0,0,0" MinWidth="10" MinHeight="10" MaxHeight="32" MaxWidth="32" Data="F1 M 4.40036,0.40004C 6.60968,0.40004 8.4007,2.19106 8.4007,4.40041C 8.4007,6.6097 6.60968,8.40071 4.40036,8.40071C 2.19104,8.40071 0.400024,6.6097 0.400024,4.40041C 0.400024,2.19106 2.19104,0.40004 4.40036,0.40004 Z " HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform">

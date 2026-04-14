@@ -1039,11 +1039,13 @@
 
     <!-- Start WaitControl-->
 <Style TargetType="{x:Type wpf:WaitControl}">
-            <Setter Property="Background" Value="#C8000000" />
-            <Setter Property="Foreground" Value="White" />
+            <Setter Property="PanelBackground" Value="#C8000000" />
+            <Setter Property="TextForeground" Value="White" />
             <Setter Property="Fill" Value="Yellow" />
             <Setter Property="ShapesGap" Value="15" />
             <Setter Property="Shapes" Value="15" />
+            <Setter Property="WidthIndicator" Value="100" />
+            <Setter Property="HeightIndicator" Value="100" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type wpf:WaitControl}">
@@ -1053,7 +1055,7 @@
                                                 HorizontalAlignment="Stretch" />
                                 <Grid x:Name="waitGrid" 
                                       Visibility="{TemplateBinding Show, Converter={StaticResource BoolToVisibilityConverter}}"
-                                      Background="{TemplateBinding Background}"
+                                      Background="{TemplateBinding PanelBackground}"
                                       SnapsToDevicePixels="True">
                                    
                                     <!-- Contenedor para el contenido personalizado o por defecto -->
@@ -1062,21 +1064,13 @@
 
                                     <!-- Contenido por defecto (Anillo + Texto) -->
                                     <Grid  x:Name="DefaultContent" Visibility="Collapsed">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"></ColumnDefinition>
-                                            <ColumnDefinition Width="*"></ColumnDefinition>
-                                            <ColumnDefinition Width="*"></ColumnDefinition>
-                                        </Grid.ColumnDefinitions>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="*"></RowDefinition>
-                                            <RowDefinition Height="*"></RowDefinition>
-                                            <RowDefinition Height="*"></RowDefinition>
-                                        </Grid.RowDefinitions>
-                                        <wpf:DotWaitIndicator Grid.Column="1" Grid.Row="1" Width="auto" Height="auto"  ShapesGap="{TemplateBinding ShapesGap}" Shapes="{TemplateBinding Shapes}" Fill="{TemplateBinding Fill}" />
-                                        <TextBlock Grid.Row="2" Grid.Column="1" x:Name="TextControl" Margin="0,20,0,0" FontSize="18"  TextAlignment="Center"
+                                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <wpf:DotWaitIndicator   Width="{TemplateBinding WidthIndicator}" Height="{TemplateBinding HeightIndicator}"  ShapesGap="{TemplateBinding ShapesGap}" Shapes="{TemplateBinding Shapes}" Fill="{TemplateBinding Fill}" />
+                                        <TextBlock  x:Name="TextControl" Margin="0,20,0,0" FontSize="18"  TextAlignment="Center"
                                                    Text="{TemplateBinding Text}" 
                                                    VerticalAlignment="Top" HorizontalAlignment="Center"
-                                                   Foreground="{TemplateBinding Foreground}" />
+                                                   Foreground="{TemplateBinding TextForeground}" />
+                                        </StackPanel>
                                     </Grid>
                                 </Grid>
                             </Grid>

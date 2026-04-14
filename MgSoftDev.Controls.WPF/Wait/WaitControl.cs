@@ -13,6 +13,13 @@ namespace MgSoftDev.Controls.WPF
            
         }
 
+        public static readonly DependencyProperty WidthIndicatorProperty = DependencyProperty.Register(nameof( WidthIndicator ), typeof( double ), typeof( WaitControl ), new PropertyMetadata(default( double )));
+
+        public double WidthIndicator { get { return ( double ) GetValue(WidthIndicatorProperty); } set { SetValue(WidthIndicatorProperty, value); } }
+
+        public static readonly DependencyProperty HeightIndicatorProperty = DependencyProperty.Register(nameof( HeightIndicator ), typeof( double ), typeof( WaitControl ), new PropertyMetadata(default( double )));
+
+        public double HeightIndicator { get { return ( double ) GetValue(HeightIndicatorProperty); } set { SetValue(HeightIndicatorProperty, value); } }
 
         public static readonly DependencyProperty ShowProperty = DependencyProperty.Register(
             "Show", typeof( bool ), typeof( WaitControl ), new PropertyMetadata(default( bool )));
@@ -31,6 +38,14 @@ namespace MgSoftDev.Controls.WPF
             set { SetValue(TextProperty, value); }
         }
 
+        public static readonly DependencyProperty TextForegroundProperty = DependencyProperty.Register(nameof( TextForeground ), typeof( Brush ), typeof( WaitControl ), new PropertyMetadata(default( Brush )));
+
+        public Brush TextForeground { get { return ( Brush ) GetValue(TextForegroundProperty); } set { SetValue(TextForegroundProperty, value); } }
+
+        public static readonly DependencyProperty PanelBackgroundProperty = DependencyProperty.Register(nameof( PanelBackground ), typeof( Brush ), typeof( WaitControl ), new PropertyMetadata(default( Brush )));
+
+        public Brush PanelBackground { get { return ( Brush ) GetValue(PanelBackgroundProperty); } set { SetValue(PanelBackgroundProperty, value); } }
+        
         public static readonly DependencyProperty ShowContentProperty =
             DependencyProperty.Register("ShowContent", typeof( FrameworkElement ), typeof( WaitControl ), new PropertyMetadata(default( FrameworkElement )));
 

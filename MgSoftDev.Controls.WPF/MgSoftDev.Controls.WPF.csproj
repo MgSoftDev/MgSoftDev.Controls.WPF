@@ -12,9 +12,9 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/MgSoftDev/MgSoftDev.Controls.WPF</PackageProjectUrl>
     <RepositoryUrl>https://github.com/MgSoftDev/MgSoftDev.Controls.WPF</RepositoryUrl>
-    <AssemblyVersion>1.7.6</AssemblyVersion>
-    <FileVersion>1.7.6</FileVersion>
-    <Version>1.7.6</Version>
+    <AssemblyVersion>1.7.9</AssemblyVersion>
+    <FileVersion>1.7.9</FileVersion>
+    <Version>1.7.9</Version>
   </PropertyGroup>
 
   <ItemGroup>
