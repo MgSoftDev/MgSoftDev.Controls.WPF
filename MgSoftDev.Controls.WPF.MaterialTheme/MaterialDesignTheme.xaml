@@ -9,6 +9,9 @@
             Source="pack://application:,,,/MgSoftDev.Controls.WPF.MaterialTheme;component/MessageBoxDialogControl.xaml" />
         <ResourceDictionary
             Source="pack://application:,,,/MgSoftDev.Controls.WPF.MaterialTheme;component/MgTabControlTheme.xaml" />
+        
+        <ResourceDictionary
+            Source="pack://application:,,,/MgSoftDev.Controls.WPF.MaterialTheme;component/KeyboardControl.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

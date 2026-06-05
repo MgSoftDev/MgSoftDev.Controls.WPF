@@ -8,6 +8,7 @@
         xmlns:wpf="clr-namespace:MgSoftDev.Controls.WPF;assembly=MgSoftDev.Controls.WPF"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:windows="clr-namespace:System.Windows;assembly=PresentationFramework"
+        xmlns:keyword="clr-namespace:MgSoftDev.Controls.WPF.Keyword;assembly=MgSoftDev.Controls.WPF"
         mc:Ignorable="d"
         
         TextElement.Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"
@@ -51,9 +52,10 @@
 
     </Window.Resources>
     <Grid>
+       
         <wpf:TouchScrollViewer VerticalScrollBarVisibility="Auto">
             <WrapPanel>
-                <TextBox Width="100" KeyDown="UIElement_OnKeyDown"></TextBox>
+                <TextBox keyword:KeyboardHelper.KeyboardScope="Numeric" Width="100" KeyDown="UIElement_OnKeyDown"></TextBox>
                 <Button Content="Notify Info" Click="ButtonBase_OnClick"></Button>
                 <Button Content="Notify Susses" Click="ButtonBase1_OnClick"></Button>
                 <Button Content="Notify Warn" Click="ButtonBase2_OnClick"></Button>

@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using MgSoftDev.Controls.WPF.Keyword;
 
 namespace MgSoftDev.Controls.Wpf.Example
 {
@@ -13,5 +14,8 @@ namespace MgSoftDev.Controls.Wpf.Example
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+        }
     }
 }

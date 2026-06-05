@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using MgSoftDev.Controls.WPF.Keyword;
 using MgSoftDev.Controls.WPF.MessageBox;
 using MgSoftDev.Controls.WPF.Notification;
 
@@ -24,7 +25,9 @@ namespace MgSoftDev.Controls.Wpf.Example
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow() { InitializeComponent(); }
+        public MainWindow()
+        {
+            KeyboardControl._EnableTouch = false;  InitializeComponent(); }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
